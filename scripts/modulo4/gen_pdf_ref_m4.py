@@ -13,16 +13,15 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from reportlab.lib.units import inch
 from scripts.config.constants import PACK
-from scripts.generators.pdf_gen import PDFGenerator
+from scripts.generators.md_gen import MarkdownGenerator
 
 OUTPUT_DIR = PACK / "Modulo_4_Dashboard"
 
 
 def build():
-    gen = PDFGenerator(
-        "Referencia_Modulo_4.pdf",
+    gen = MarkdownGenerator(
+        "Referencia_Modulo_4.md",
         OUTPUT_DIR,
         title="Referencia Rapida -- Modulo 4"
     )
@@ -240,8 +239,8 @@ def build():
     gen.add_subsection("Archivos de este modulo")
     gen.add_bullet("09_Layout_Dashboard_Contable.xlsx -- Template de layout para dashboard")
     gen.add_bullet("10_Dashboard_Final_Integrado.xlsx -- Datos + Calculadora + Dashboard")
-    gen.add_bullet("11_Guia_Proteccion_y_Seguridad.pdf -- Guia detallada de proteccion")
-    gen.add_bullet("Referencia_Modulo_4.pdf -- Este documento")
+    gen.add_bullet("11_Guia_Proteccion_y_Seguridad.md -- Guia detallada de proteccion")
+    gen.add_bullet("Referencia_Modulo_4.md -- Este documento")
 
     gen.save()
 

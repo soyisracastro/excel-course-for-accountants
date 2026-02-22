@@ -15,11 +15,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from reportlab.lib.units import inch
 from scripts.config.constants import PACK
 from scripts.config.isr_2026 import TARIFA_ANUAL, calcular_isr_anual
-from scripts.generators.pdf_gen import PDFGenerator
+from scripts.generators.md_gen import MarkdownGenerator
 
+inch = 72  # compat: MarkdownGenerator ignores col_widths
 
 OUTPUT_DIR = PACK / "Modulo_1_Funciones"
 
@@ -37,8 +37,8 @@ def _fmt_pct(v):
 
 
 def build():
-    gen = PDFGenerator(
-        filename="Referencia_Modulo_1.pdf",
+    gen = MarkdownGenerator(
+        filename="Referencia_Modulo_1.md",
         output_dir=OUTPUT_DIR,
         title="Referencia - Modulo 1: Logica Contable y Funciones de Control",
     )

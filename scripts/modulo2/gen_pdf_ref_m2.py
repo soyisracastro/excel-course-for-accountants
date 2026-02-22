@@ -13,20 +13,18 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from reportlab.lib.units import inch, cm
 from scripts.config.constants import PACK, MODULOS
-from scripts.generators.pdf_gen import (
-    PDFGenerator, RL_AZUL, RL_VERDE, RL_ROJO, RL_AMARILLO,
-    RL_TEXTO, RL_TEXTO_MEDIO, RL_FONDO, RL_GRIS_BORDE, RL_BLANCO
-)
+from scripts.generators.md_gen import MarkdownGenerator
+
+inch = 72  # compat: MarkdownGenerator ignores col_widths
 
 OUTPUT_DIR = PACK / "Modulo_2_Tablas_Dinamicas"
 M2 = MODULOS[2]
 
 
 def build():
-    pdf = PDFGenerator(
-        filename="Referencia_Modulo_2.pdf",
+    pdf = MarkdownGenerator(
+        filename="Referencia_Modulo_2.md",
         output_dir=OUTPUT_DIR,
         title="Referencia Modulo 2 - Tablas Dinamicas"
     )

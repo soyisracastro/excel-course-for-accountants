@@ -26,7 +26,7 @@ from scripts.generators.pptx_gen import SlidesGenerator
 
 def build():
     gen = SlidesGenerator(
-        filename="Bonus_1_VBA_con_IA.pptx",
+        filename="Bonus_1_VBA_con_IA.md",
         output_dir=SLIDES_DIR,
         script_filename="Script_Bonus_1_VBA.md",
         script_dir=TELEPROMPTER_DIR,

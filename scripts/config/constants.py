@@ -68,31 +68,31 @@ MODULOS = {
     1: {
         "nombre": "Lógica Contable y Funciones de Control",
         "carpeta": "Modulo_1_Funciones",
-        "slide_nombre": "Modulo_1_Logica_Contable.pptx",
+        "slide_nombre": "Modulo_1_Logica_Contable.md",
         "script_nombre": "Script_Modulo_1.md",
     },
     2: {
         "nombre": "Procesamiento Masivo y Análisis con Tablas Dinámicas",
         "carpeta": "Modulo_2_Tablas_Dinamicas",
-        "slide_nombre": "Modulo_2_Tablas_Dinamicas.pptx",
+        "slide_nombre": "Modulo_2_Tablas_Dinamicas.md",
         "script_nombre": "Script_Modulo_2.md",
     },
     3: {
         "nombre": "Visualización de Impacto y Reportes Ejecutivos",
         "carpeta": "Modulo_3_Visualizacion",
-        "slide_nombre": "Modulo_3_Visualizacion.pptx",
+        "slide_nombre": "Modulo_3_Visualizacion.md",
         "script_nombre": "Script_Modulo_3.md",
     },
     4: {
         "nombre": "El Dashboard Inteligente y Entrega Profesional",
         "carpeta": "Modulo_4_Dashboard",
-        "slide_nombre": "Modulo_4_Dashboard.pptx",
+        "slide_nombre": "Modulo_4_Dashboard.md",
         "script_nombre": "Script_Modulo_4.md",
     },
     5: {
         "nombre": "Automatización Nativa con Microsoft 365 Copilot",
         "carpeta": "Modulo_5_Copilot_IA",
-        "slide_nombre": "Modulo_5_Copilot_IA.pptx",
+        "slide_nombre": "Modulo_5_Copilot_IA.md",
         "script_nombre": "Script_Modulo_5.md",
     },
 }

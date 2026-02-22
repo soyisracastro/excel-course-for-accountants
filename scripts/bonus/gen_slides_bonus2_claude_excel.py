@@ -27,7 +27,7 @@ from scripts.generators.pptx_gen import SlidesGenerator
 
 def build():
     gen = SlidesGenerator(
-        filename="Bonus_2_Claude_en_Excel.pptx",
+        filename="Bonus_2_Claude_en_Excel.md",
         output_dir=SLIDES_DIR,
         script_filename="Script_Bonus_2_Claude.md",
         script_dir=TELEPROMPTER_DIR,

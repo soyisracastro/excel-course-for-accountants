@@ -58,32 +58,32 @@ EXPECTED_FILES = {
     "Pack_Excel_Pro/Modulo_1_Funciones/01_Calculadora_ISR_V2026.xlsx": {"type": "xlsx"},
     "Pack_Excel_Pro/Modulo_1_Funciones/02_Control_Vencimientos_EFirma.xlsx": {"type": "xlsx"},
     "Pack_Excel_Pro/Modulo_1_Funciones/03_Extraccion_RFC_Master.xlsx": {"type": "xlsx"},
-    "Pack_Excel_Pro/Modulo_1_Funciones/Referencia_Modulo_1.pdf": {"type": "pdf"},
+    "Pack_Excel_Pro/Modulo_1_Funciones/Referencia_Modulo_1.md": {"type": "md"},
     "Pack_Excel_Pro/Modulo_2_Tablas_Dinamicas/04_Limpieza_Masiva_Layout.xlsx": {"type": "xlsx"},
     "Pack_Excel_Pro/Modulo_2_Tablas_Dinamicas/05_Analisis_Nomina_XML_Pivot.xlsx": {"type": "xlsx"},
     "Pack_Excel_Pro/Modulo_2_Tablas_Dinamicas/06_Papel_Trabajo_Referenciado.xlsx": {"type": "xlsx"},
-    "Pack_Excel_Pro/Modulo_2_Tablas_Dinamicas/Referencia_Modulo_2.pdf": {"type": "pdf"},
+    "Pack_Excel_Pro/Modulo_2_Tablas_Dinamicas/Referencia_Modulo_2.md": {"type": "md"},
     "Pack_Excel_Pro/Modulo_3_Visualizacion/07_Dashboard_Ventas_Combustible.xlsx": {"type": "xlsx"},
     "Pack_Excel_Pro/Modulo_3_Visualizacion/08_Comparativa_Anual_Ventas_Gastos.xlsx": {"type": "xlsx"},
-    "Pack_Excel_Pro/Modulo_3_Visualizacion/Referencia_Modulo_3.pdf": {"type": "pdf"},
+    "Pack_Excel_Pro/Modulo_3_Visualizacion/Referencia_Modulo_3.md": {"type": "md"},
     "Pack_Excel_Pro/Modulo_4_Dashboard/09_Layout_Dashboard_Contable.xlsx": {"type": "xlsx"},
     "Pack_Excel_Pro/Modulo_4_Dashboard/10_Dashboard_Final_Integrado.xlsx": {"type": "xlsx"},
-    "Pack_Excel_Pro/Modulo_4_Dashboard/11_Guia_Proteccion_y_Seguridad.pdf": {"type": "pdf"},
-    "Pack_Excel_Pro/Modulo_4_Dashboard/Referencia_Modulo_4.pdf": {"type": "pdf"},
+    "Pack_Excel_Pro/Modulo_4_Dashboard/11_Guia_Proteccion_y_Seguridad.md": {"type": "md"},
+    "Pack_Excel_Pro/Modulo_4_Dashboard/Referencia_Modulo_4.md": {"type": "md"},
     "Pack_Excel_Pro/Modulo_5_Copilot_IA/12_Dataset_Master_Copilot.xlsx": {"type": "xlsx"},
-    "Pack_Excel_Pro/Modulo_5_Copilot_IA/Guia_Prompts_Copilot_Contadores.pdf": {"type": "pdf"},
-    "Pack_Excel_Pro/Modulo_5_Copilot_IA/Referencia_Modulo_5.pdf": {"type": "pdf"},
-    "Pack_Excel_Pro/Bonus/Guia_VBA_con_IA.pdf": {"type": "pdf"},
-    "Pack_Excel_Pro/Bonus/Guia_Claude_en_Excel.pdf": {"type": "pdf"},
-    "Pack_Excel_Pro/Bonus/Atajos_Excel_CheatSheet.pdf": {"type": "pdf"},
+    "Pack_Excel_Pro/Modulo_5_Copilot_IA/Guia_Prompts_Copilot_Contadores.md": {"type": "md"},
+    "Pack_Excel_Pro/Modulo_5_Copilot_IA/Referencia_Modulo_5.md": {"type": "md"},
+    "Pack_Excel_Pro/Bonus/Guia_VBA_con_IA.md": {"type": "md"},
+    "Pack_Excel_Pro/Bonus/Guia_Claude_en_Excel.md": {"type": "md"},
+    "Pack_Excel_Pro/Bonus/Atajos_Excel_CheatSheet.md": {"type": "md"},
     # Slides
-    "Slides/Modulo_1_Logica_Contable.pptx": {"type": "pptx"},
-    "Slides/Modulo_2_Tablas_Dinamicas.pptx": {"type": "pptx"},
-    "Slides/Modulo_3_Visualizacion.pptx": {"type": "pptx"},
-    "Slides/Modulo_4_Dashboard.pptx": {"type": "pptx"},
-    "Slides/Modulo_5_Copilot_IA.pptx": {"type": "pptx"},
-    "Slides/Bonus_1_VBA_con_IA.pptx": {"type": "pptx"},
-    "Slides/Bonus_2_Claude_en_Excel.pptx": {"type": "pptx"},
+    "Slides/Modulo_1_Logica_Contable.md": {"type": "md"},
+    "Slides/Modulo_2_Tablas_Dinamicas.md": {"type": "md"},
+    "Slides/Modulo_3_Visualizacion.md": {"type": "md"},
+    "Slides/Modulo_4_Dashboard.md": {"type": "md"},
+    "Slides/Modulo_5_Copilot_IA.md": {"type": "md"},
+    "Slides/Bonus_1_VBA_con_IA.md": {"type": "md"},
+    "Slides/Bonus_2_Claude_en_Excel.md": {"type": "md"},
     # Teleprompter
     "Teleprompter/Script_Modulo_1.md": {"type": "md"},
     "Teleprompter/Script_Modulo_2.md": {"type": "md"},
@@ -183,30 +183,6 @@ def verify():
     except ImportError:
         print("  (openpyxl no disponible para validación de XLSX)")
 
-    # PPTX validation
-    pptx_count = 0
-    pptx_ok = 0
-    try:
-        from pptx import Presentation
-        for rel_path, meta in EXPECTED_FILES.items():
-            if meta["type"] == "pptx":
-                full_path = OUTPUT / rel_path
-                if full_path.exists():
-                    pptx_count += 1
-                    try:
-                        prs = Presentation(str(full_path))
-                        n_slides = len(prs.slides)
-                        if n_slides >= 10:
-                            pptx_ok += 1
-                        else:
-                            print(f"  ⚠ {rel_path}: solo {n_slides} slides")
-                    except Exception as e:
-                        print(f"  ⚠ {rel_path}: Error al abrir: {e}")
-        if pptx_count > 0:
-            print(f"  PPTX: {pptx_ok}/{pptx_count} tienen ≥10 slides")
-    except ImportError:
-        print("  (python-pptx no disponible para validación)")
-
     # MD validation
     md_count = 0
     md_ok = 0
@@ -218,12 +194,15 @@ def verify():
                 content = full_path.read_text(encoding="utf-8")
                 sections = content.count("## ")
                 words = len(content.split())
-                if sections >= 5 and words >= 1000:
+                # Slides need fewer words but still sections; others need both
+                min_words = 200 if rel_path.startswith("Slides/") else 1000
+                min_sections = 3 if rel_path.startswith("Slides/") else 5
+                if sections >= min_sections and words >= min_words:
                     md_ok += 1
                 else:
                     print(f"  ⚠ {rel_path}: {sections} secciones, {words} palabras")
     if md_count > 0:
-        print(f"  MD Scripts: {md_ok}/{md_count} tienen ≥5 secciones y ≥1000 palabras")
+        print(f"  MD: {md_ok}/{md_count} pasan validación de contenido")
 
     print(f"{'=' * 60}")
     return missing == 0 and empty == 0

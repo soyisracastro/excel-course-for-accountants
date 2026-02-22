@@ -13,7 +13,7 @@ from scripts.config.constants import (
     SLIDES_DIR, TELEPROMPTER_DIR, MODULOS, CURSO_NOMBRE, INSTRUCTOR,
     ColorRGB,
 )
-from scripts.generators.pptx_gen import SlidesGenerator, PPTX_AZUL, PPTX_BLANCO, PPTX_TEXTO
+from scripts.generators.pptx_gen import SlidesGenerator
 
 M5 = MODULOS[5]
 

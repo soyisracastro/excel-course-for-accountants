@@ -13,11 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from scripts.config.constants import (
     PACK, SLIDES_DIR, TELEPROMPTER_DIR, MODULOS, ColorRGB
 )
-from scripts.generators.pptx_gen import (
-    SlidesGenerator, PPTX_AZUL, PPTX_VERDE, PPTX_ROJO,
-    PPTX_TEXTO, PPTX_BLANCO, PPTX_TEXTO_MEDIO,
-    PP_ALIGN, Pt, Inches, RGBColor
-)
+from scripts.generators.pptx_gen import SlidesGenerator
 
 M = MODULOS[4]
 

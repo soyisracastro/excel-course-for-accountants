@@ -17,7 +17,7 @@ from scripts.generators.pptx_gen import SlidesGenerator
 
 def build():
     gen = SlidesGenerator(
-        filename="Modulo_1_Logica_Contable.pptx",
+        filename="Modulo_1_Logica_Contable.md",
         output_dir=SLIDES_DIR,
         script_filename="Script_Modulo_1.md",
         script_dir=TELEPROMPTER_DIR,

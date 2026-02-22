@@ -1,5 +1,5 @@
 """
-Generador: Atajos_Excel_CheatSheet.pdf
+Generador: Atajos_Excel_CheatSheet.md
 Bonus — Cheat sheet de atajos de teclado de Excel
 
 Categorias:
@@ -18,66 +18,26 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from reportlab.lib.units import inch, cm
-from reportlab.platypus import Paragraph, Spacer, Table, TableStyle, PageBreak
-from reportlab.lib.colors import HexColor
-
-from scripts.config.constants import PACK, Color, CURSO_NOMBRE, INSTRUCTOR, ANIO
-from scripts.generators.pdf_gen import (
-    PDFGenerator, RL_AZUL, RL_BLANCO, RL_TEXTO, RL_FONDO, RL_GRIS_BORDE, RL_TEXTO_MEDIO,
-)
+from scripts.config.constants import PACK
+from scripts.generators.md_gen import MarkdownGenerator
 
 OUTPUT_DIR = PACK / "Bonus"
 
 
-def _shortcut_table(pdf, title, shortcuts):
-    # type: (PDFGenerator, str, list) -> None
-    """Add a category section with a styled table of shortcuts."""
-    pdf.add_section(title)
+def _shortcut_table(md, title, shortcuts):
+    """Add a category section with a table of shortcuts."""
+    md.add_section(title)
 
-    header = [
-        Paragraph("<b>Atajo</b>", pdf.styles["BodyText2"]),
-        Paragraph("<b>Accion</b>", pdf.styles["BodyText2"]),
-        Paragraph("<b>Tip</b>", pdf.styles["BodyText2"]),
-    ]
-
-    table_data = [header]
+    table_data = [["Atajo", "Accion", "Tip"]]
     for atajo, accion, tip in shortcuts:
-        table_data.append([
-            Paragraph("<b><font face='Courier'>{}</font></b>".format(atajo), pdf.styles["BodyText2"]),
-            Paragraph(accion, pdf.styles["BodyText2"]),
-            Paragraph("<i>{}</i>".format(tip) if tip else "", pdf.styles["BodyText2"]),
-        ])
+        table_data.append([f"`{atajo}`", accion, f"*{tip}*" if tip else ""])
 
-    col_widths = [1.8 * inch, 2.8 * inch, 2.4 * inch]
-
-    style_cmds = [
-        ("FONTNAME", (0, 0), (-1, -1), "Helvetica"),
-        ("FONTSIZE", (0, 0), (-1, -1), 9),
-        ("TEXTCOLOR", (0, 0), (-1, -1), RL_TEXTO),
-        ("ALIGN", (0, 0), (-1, -1), "LEFT"),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("GRID", (0, 0), (-1, -1), 0.5, RL_GRIS_BORDE),
-        ("TOPPADDING", (0, 0), (-1, -1), 3),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
-        ("LEFTPADDING", (0, 0), (-1, -1), 5),
-        ("BACKGROUND", (0, 0), (-1, 0), RL_AZUL),
-        ("TEXTCOLOR", (0, 0), (-1, 0), RL_BLANCO),
-        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-    ]
-    # Zebra striping
-    for i in range(2, len(table_data), 2):
-        style_cmds.append(("BACKGROUND", (0, i), (-1, i), RL_FONDO))
-
-    tbl = Table(table_data, colWidths=col_widths, repeatRows=1)
-    tbl.setStyle(TableStyle(style_cmds))
-    pdf.elements.append(tbl)
-    pdf.add_spacer(0.15)
+    md.add_table(table_data)
 
 
 def build():
-    pdf = PDFGenerator(
-        filename="Atajos_Excel_CheatSheet.pdf",
+    pdf = MarkdownGenerator(
+        filename="Atajos_Excel_CheatSheet.md",
         output_dir=OUTPUT_DIR,
         title="Atajos de Teclado Excel - Cheat Sheet",
     )
@@ -139,7 +99,7 @@ def build():
         ("Ctrl + I (o Ctrl + K)", "Cursiva", "Toggle on/off"),
         ("Ctrl + U (o Ctrl + S)", "Subrayado", "Toggle on/off"),
         ("Ctrl + Shift + $", "Formato moneda", "Aplica formato $#,##0.00"),
-        ("Ctrl + Shift + %", "Formato porcentaje", "Multiplica por 100 y agrega %%"),
+        ("Ctrl + Shift + %", "Formato porcentaje", "Multiplica por 100 y agrega %"),
         ("Ctrl + Shift + #", "Formato fecha", "Formato DD-MMM-AA"),
         ("Ctrl + Shift + @", "Formato hora", "Formato HH:MM AM/PM"),
         ("Ctrl + Shift + !", "Formato numero con miles", "Separador de miles y 2 decimales"),
@@ -218,20 +178,19 @@ def build():
     # ── Nota final ────────────────────────────────────────────────
     pdf.add_spacer(0.3)
     pdf.add_text(
-        "<b>Nota:</b> Algunos atajos pueden variar segun la version de Excel "
+        "**Nota:** Algunos atajos pueden variar segun la version de Excel "
         "(2019, 2021, 365) y la configuracion de idioma. Los atajos mostrados "
         "corresponden a la version en espaniol de Windows. En Mac, sustituir "
         "Ctrl por Cmd en la mayoria de los casos."
     )
     pdf.add_spacer(0.1)
     pdf.add_text(
-        "<b>Tip final:</b> No intenten memorizar todos los atajos de golpe. "
-        "Elijan 3-5 que usen frecuentemente, practiqueenlos una semana, y luego "
+        "**Tip final:** No intenten memorizar todos los atajos de golpe. "
+        "Elijan 3-5 que usen frecuentemente, practiquenlos una semana, y luego "
         "agreguen 3-5 mas. En un mes habran duplicado su velocidad en Excel."
     )
 
     pdf.save()
-    print("Cheat Sheet de Atajos generado correctamente.")
 
 
 if __name__ == "__main__":

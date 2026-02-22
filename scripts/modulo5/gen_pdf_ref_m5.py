@@ -13,16 +13,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from reportlab.lib.units import inch, cm
 from scripts.config.constants import PACK, MODULOS
-from scripts.generators.pdf_gen import PDFGenerator
+from scripts.generators.md_gen import MarkdownGenerator
+
+inch = 72  # compat: MarkdownGenerator ignores col_widths
 
 OUTPUT_DIR = PACK / "Modulo_5_Copilot_IA"
 
 
 def build():
-    pdf = PDFGenerator(
-        "Referencia_Modulo_5.pdf",
+    pdf = MarkdownGenerator(
+        "Referencia_Modulo_5.md",
         OUTPUT_DIR,
         title="Referencia Rapida - Modulo 5: Copilot e IA",
     )

@@ -1,7 +1,7 @@
 """
-Generador de PDFs Bonus:
-  1. Guia_VBA_con_IA.pdf — Plantillas de prompts y 5 macros listas para copiar
-  2. Guia_Claude_en_Excel.pdf — Guia de instalacion, prompts y comparativa
+Generador de Markdowns Bonus:
+  1. Guia_VBA_con_IA.md — Plantillas de prompts y 5 macros listas para copiar
+  2. Guia_Claude_en_Excel.md — Guia de instalacion, prompts y comparativa
 
 Salida: output/Pack_Excel_Pro/Bonus/
 """
@@ -10,15 +10,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from reportlab.lib.units import inch
-from reportlab.platypus import Paragraph, Table, TableStyle
-from reportlab.lib.colors import HexColor
-
-from scripts.config.constants import PACK, Color, CURSO_NOMBRE, INSTRUCTOR, ANIO
-from scripts.generators.pdf_gen import (
-    PDFGenerator, RL_AZUL, RL_BLANCO, RL_TEXTO, RL_FONDO, RL_GRIS_BORDE,
-    RL_TEXTO_MEDIO, RL_VERDE, RL_ROJO,
-)
+from scripts.config.constants import PACK
+from scripts.generators.md_gen import MarkdownGenerator
 
 OUTPUT_DIR = PACK / "Bonus"
 
@@ -28,8 +21,8 @@ OUTPUT_DIR = PACK / "Bonus"
 # =====================================================================
 
 def _build_vba_guide():
-    pdf = PDFGenerator(
-        filename="Guia_VBA_con_IA.pdf",
+    pdf = MarkdownGenerator(
+        filename="Guia_VBA_con_IA.md",
         output_dir=OUTPUT_DIR,
         title="Guia VBA con IA - Macros Listas para Copiar",
     )
@@ -50,7 +43,7 @@ def _build_vba_guide():
     )
     pdf.add_spacer(0.1)
     pdf.add_text(
-        "<b>Requisitos:</b> Excel 2019, 2021, o Microsoft 365 en Windows. "
+        "**Requisitos:** Excel 2019, 2021, o Microsoft 365 en Windows. "
         "Guardar el archivo como .xlsm (habilitado para macros). "
         "Abrir el editor VBA con Alt + F11, insertar un Modulo, y pegar el codigo."
     )
@@ -114,38 +107,37 @@ def _build_vba_guide():
         "el rango, encabezado con fondo azul y texto blanco, y autoajuste de columnas."
     )
     pdf.add_subsection("Codigo VBA")
-    vba1 = (
-        "Sub FormatearNomina()<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim ws As Worksheet<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim rng As Range<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim lastRow As Long, lastCol As Long<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Set ws = ActiveSheet<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;lastCol = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Set rng = ws.Range(ws.Cells(1, 1), ws.Cells(lastRow, lastCol))<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;' Formato numerico a columnas monetarias (E:H)<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;ws.Range(ws.Cells(2, 5), ws.Cells(lastRow, 8)).NumberFormat = \"#,##0.00\"<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;' Bordes delgados<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;rng.Borders.LineStyle = xlContinuous<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;rng.Borders.Weight = xlThin<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;' Encabezado azul<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;With ws.Range(ws.Cells(1, 1), ws.Cells(1, lastCol))<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Interior.Color = RGB(37, 99, 235)<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Font.Color = RGB(255, 255, 255)<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Font.Bold = True<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;End With<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;' Autoajuste<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;rng.Columns.AutoFit<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;MsgBox \"Nomina formateada correctamente.\", vbInformation<br/>"
-        "End Sub"
+    pdf.add_code(
+        'Sub FormatearNomina()\n'
+        '    Dim ws As Worksheet\n'
+        '    Dim rng As Range\n'
+        '    Dim lastRow As Long, lastCol As Long\n'
+        '    \n'
+        '    Set ws = ActiveSheet\n'
+        '    lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row\n'
+        '    lastCol = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column\n'
+        '    Set rng = ws.Range(ws.Cells(1, 1), ws.Cells(lastRow, lastCol))\n'
+        '    \n'
+        "    ' Formato numerico a columnas monetarias (E:H)\n"
+        '    ws.Range(ws.Cells(2, 5), ws.Cells(lastRow, 8)).NumberFormat = "#,##0.00"\n'
+        '    \n'
+        "    ' Bordes delgados\n"
+        '    rng.Borders.LineStyle = xlContinuous\n'
+        '    rng.Borders.Weight = xlThin\n'
+        '    \n'
+        "    ' Encabezado azul\n"
+        '    With ws.Range(ws.Cells(1, 1), ws.Cells(1, lastCol))\n'
+        '        .Interior.Color = RGB(37, 99, 235)\n'
+        '        .Font.Color = RGB(255, 255, 255)\n'
+        '        .Font.Bold = True\n'
+        '    End With\n'
+        '    \n'
+        "    ' Autoajuste\n"
+        '    rng.Columns.AutoFit\n'
+        '    \n'
+        '    MsgBox "Nomina formateada correctamente.", vbInformation\n'
+        'End Sub'
     )
-    pdf.add_code(vba1)
     pdf.add_subsection("Como usar")
     pdf.add_bullet("Abrir el archivo de nomina en Excel")
     pdf.add_bullet("Alt + F11 -> Insertar -> Modulo -> Pegar el codigo")
@@ -170,24 +162,23 @@ def _build_vba_guide():
         "Recorre de abajo hacia arriba para evitar saltar filas al eliminar."
     )
     pdf.add_subsection("Codigo VBA")
-    vba2 = (
-        "Sub LimpiarVacias()<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim rng As Range<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim i As Long<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Set rng = Selection<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;' Recorrer de abajo hacia arriba<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;For i = rng.Rows.Count To 1 Step -1<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If Application.WorksheetFunction.CountA(rng.Rows(i)) = 0 Then<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rng.Rows(i).EntireRow.Delete<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End If<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Next i<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;MsgBox \"Filas vacias eliminadas.\", vbInformation<br/>"
-        "End Sub"
+    pdf.add_code(
+        'Sub LimpiarVacias()\n'
+        '    Dim rng As Range\n'
+        '    Dim i As Long\n'
+        '    \n'
+        '    Set rng = Selection\n'
+        '    \n'
+        "    ' Recorrer de abajo hacia arriba\n"
+        '    For i = rng.Rows.Count To 1 Step -1\n'
+        '        If Application.WorksheetFunction.CountA(rng.Rows(i)) = 0 Then\n'
+        '            rng.Rows(i).EntireRow.Delete\n'
+        '        End If\n'
+        '    Next i\n'
+        '    \n'
+        '    MsgBox "Filas vacias eliminadas.", vbInformation\n'
+        'End Sub'
     )
-    pdf.add_code(vba2)
     pdf.add_subsection("Como usar")
     pdf.add_bullet("Seleccionar el rango de datos con posibles filas vacias")
     pdf.add_bullet("Ejecutar la macro con F5 desde el editor VBA")
@@ -211,43 +202,41 @@ def _build_vba_guide():
         "encabezado con fecha de generacion."
     )
     pdf.add_subsection("Codigo VBA")
-    vba3 = (
-        "Sub ReporteMensual()<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim ws As Worksheet<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim nombreHoja As String<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim meses As Variant<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;meses = Array(\"Ene\", \"Feb\", \"Mar\", \"Abr\", \"May\", \"Jun\", _<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-        "\"Jul\", \"Ago\", \"Sep\", \"Oct\", \"Nov\", \"Dic\")<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;nombreHoja = \"Reporte_\" &amp; meses(Month(Date) - 1) &amp; \"_\" &amp; Year(Date)<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;' Verificar si ya existe<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;On Error Resume Next<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Set ws = ThisWorkbook.Sheets(nombreHoja)<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;On Error GoTo 0<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;If Not ws Is Nothing Then<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox \"La hoja \" &amp; nombreHoja &amp; \" ya existe.\", vbExclamation<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit Sub<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;End If<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;' Crear nueva hoja<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Set ws = ThisWorkbook.Sheets.Add( _<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;ws.Name = nombreHoja<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;' Encabezado<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;ws.Range(\"A1\").Value = \"Reporte Mensual - \" &amp; Format(Date, \"MMMM YYYY\")<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;ws.Range(\"A2\").Value = \"Generado: \" &amp; Format(Now, \"DD/MM/YYYY HH:MM\")<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;ws.Range(\"A1\").Font.Bold = True<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;ws.Range(\"A1\").Font.Size = 14<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;MsgBox \"Hoja '\" &amp; nombreHoja &amp; \"' creada.\", vbInformation<br/>"
-        "End Sub"
+    pdf.add_code(
+        'Sub ReporteMensual()\n'
+        '    Dim ws As Worksheet\n'
+        '    Dim nombreHoja As String\n'
+        '    Dim meses As Variant\n'
+        '    \n'
+        '    meses = Array("Ene", "Feb", "Mar", "Abr", "May", "Jun", _\n'
+        '                   "Jul", "Ago", "Sep", "Oct", "Nov", "Dic")\n'
+        '    \n'
+        '    nombreHoja = "Reporte_" & meses(Month(Date) - 1) & "_" & Year(Date)\n'
+        '    \n'
+        "    ' Verificar si ya existe\n"
+        '    On Error Resume Next\n'
+        '    Set ws = ThisWorkbook.Sheets(nombreHoja)\n'
+        '    On Error GoTo 0\n'
+        '    \n'
+        '    If Not ws Is Nothing Then\n'
+        '        MsgBox "La hoja " & nombreHoja & " ya existe.", vbExclamation\n'
+        '        Exit Sub\n'
+        '    End If\n'
+        '    \n'
+        "    ' Crear nueva hoja\n"
+        '    Set ws = ThisWorkbook.Sheets.Add( _\n'
+        '        After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))\n'
+        '    ws.Name = nombreHoja\n'
+        '    \n'
+        "    ' Encabezado\n"
+        '    ws.Range("A1").Value = "Reporte Mensual - " & Format(Date, "MMMM YYYY")\n'
+        '    ws.Range("A2").Value = "Generado: " & Format(Now, "DD/MM/YYYY HH:MM")\n'
+        '    ws.Range("A1").Font.Bold = True\n'
+        '    ws.Range("A1").Font.Size = 14\n'
+        '    \n'
+        '    MsgBox "Hoja \'" & nombreHoja & "\' creada.", vbInformation\n'
+        'End Sub'
     )
-    pdf.add_code(vba3)
     pdf.add_subsection("Como usar")
     pdf.add_bullet("Abrir el libro donde se necesita el reporte mensual")
     pdf.add_bullet("Ejecutar la macro; crea la hoja automaticamente")
@@ -271,25 +260,24 @@ def _build_vba_guide():
         "Muestra un conteo de cuantas tablas fueron actualizadas."
     )
     pdf.add_subsection("Codigo VBA")
-    vba4 = (
-        "Sub ActualizarPivots()<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim ws As Worksheet<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim pt As PivotTable<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim contador As Long<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;contador = 0<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;For Each ws In ThisWorkbook.Worksheets<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For Each pt In ws.PivotTables<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt.RefreshTable<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contador = contador + 1<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next pt<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Next ws<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;MsgBox contador &amp; \" tabla(s) dinamica(s) actualizada(s).\", vbInformation<br/>"
-        "End Sub"
+    pdf.add_code(
+        'Sub ActualizarPivots()\n'
+        '    Dim ws As Worksheet\n'
+        '    Dim pt As PivotTable\n'
+        '    Dim contador As Long\n'
+        '    \n'
+        '    contador = 0\n'
+        '    \n'
+        '    For Each ws In ThisWorkbook.Worksheets\n'
+        '        For Each pt In ws.PivotTables\n'
+        '            pt.RefreshTable\n'
+        '            contador = contador + 1\n'
+        '        Next pt\n'
+        '    Next ws\n'
+        '    \n'
+        '    MsgBox contador & " tabla(s) dinamica(s) actualizada(s).", vbInformation\n'
+        'End Sub'
     )
-    pdf.add_code(vba4)
     pdf.add_subsection("Como usar")
     pdf.add_bullet("Tener un libro con una o mas tablas dinamicas")
     pdf.add_bullet("Ejecutar la macro; actualiza TODAS las tablas de todas las hojas")
@@ -312,35 +300,33 @@ def _build_vba_guide():
         "el nombre de la hoja y la fecha actual. Guarda en la misma carpeta del libro."
     )
     pdf.add_subsection("Codigo VBA")
-    vba5 = (
-        "Sub ExportarPDF()<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim ws As Worksheet<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim rutaPDF As String<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Dim rutaLibro As String<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;Set ws = ActiveSheet<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;rutaLibro = ThisWorkbook.Path<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;If rutaLibro = \"\" Then<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox \"Guarde el libro primero.\", vbExclamation<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit Sub<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;End If<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;rutaPDF = rutaLibro &amp; \"\\\" &amp; ws.Name &amp; \"_\" &amp; _<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-        "Format(Date, \"YYYY-MM-DD\") &amp; \".pdf\"<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;ws.ExportAsFixedFormat _<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type:=xlTypePDF, _<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filename:=rutaPDF, _<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quality:=xlQualityStandard, _<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IncludeDocProperties:=True, _<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OpenAfterPublish:=True<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;MsgBox \"PDF exportado: \" &amp; rutaPDF, vbInformation<br/>"
-        "End Sub"
+    pdf.add_code(
+        'Sub ExportarPDF()\n'
+        '    Dim ws As Worksheet\n'
+        '    Dim rutaPDF As String\n'
+        '    Dim rutaLibro As String\n'
+        '    \n'
+        '    Set ws = ActiveSheet\n'
+        '    rutaLibro = ThisWorkbook.Path\n'
+        '    \n'
+        '    If rutaLibro = "" Then\n'
+        '        MsgBox "Guarde el libro primero.", vbExclamation\n'
+        '        Exit Sub\n'
+        '    End If\n'
+        '    \n'
+        '    rutaPDF = rutaLibro & "\\" & ws.Name & "_" & _\n'
+        '             Format(Date, "YYYY-MM-DD") & ".pdf"\n'
+        '    \n'
+        '    ws.ExportAsFixedFormat _\n'
+        '        Type:=xlTypePDF, _\n'
+        '        Filename:=rutaPDF, _\n'
+        '        Quality:=xlQualityStandard, _\n'
+        '        IncludeDocProperties:=True, _\n'
+        '        OpenAfterPublish:=True\n'
+        '    \n'
+        '    MsgBox "PDF exportado: " & rutaPDF, vbInformation\n'
+        'End Sub'
     )
-    pdf.add_code(vba5)
     pdf.add_subsection("Como usar")
     pdf.add_bullet("Abrir la hoja que desea exportar como PDF")
     pdf.add_bullet("Configurar area de impresion si es necesario (Vista > Saltos de pagina)")
@@ -359,28 +345,27 @@ def _build_vba_guide():
     pdf.add_page_break()
     pdf.add_section("Tips Finales")
     pdf.add_bullet(
-        "<b>Personal.xlsb:</b> Guarda tus macros mas utiles en el libro Personal "
+        "**Personal.xlsb:** Guarda tus macros mas utiles en el libro Personal "
         "(Archivo > Opciones > Guardar macro en > Libro de macros personal). "
         "Asi estan disponibles en todos tus archivos."
     )
     pdf.add_bullet(
-        "<b>Seguridad:</b> Solo habilita macros de fuentes confiables. "
+        "**Seguridad:** Solo habilita macros de fuentes confiables. "
         "Configura el Trust Center en: Archivo > Opciones > Centro de confianza."
     )
     pdf.add_bullet(
-        "<b>Respaldo:</b> Siempre prueba macros en una copia del archivo, nunca en el original."
+        "**Respaldo:** Siempre prueba macros en una copia del archivo, nunca en el original."
     )
     pdf.add_bullet(
-        "<b>Errores:</b> Si una macro da error, copia el mensaje de error y el codigo, "
+        "**Errores:** Si una macro da error, copia el mensaje de error y el codigo, "
         "pegalo en Claude o ChatGPT, y pide explicacion y correccion."
     )
     pdf.add_bullet(
-        "<b>Documentacion:</b> Agrega comentarios (lineas con ') a tus macros para "
+        "**Documentacion:** Agrega comentarios (lineas con ') a tus macros para "
         "que tu yo futuro entienda que hacen."
     )
 
     pdf.save()
-    print("PDF 1 - Guia VBA con IA generado correctamente.")
 
 
 # =====================================================================
@@ -388,8 +373,8 @@ def _build_vba_guide():
 # =====================================================================
 
 def _build_claude_guide():
-    pdf = PDFGenerator(
-        filename="Guia_Claude_en_Excel.pdf",
+    pdf = MarkdownGenerator(
+        filename="Guia_Claude_en_Excel.md",
         output_dir=OUTPUT_DIR,
         title="Guia Claude en Excel - Tu Segundo Cerebro Contable",
     )
@@ -417,13 +402,13 @@ def _build_claude_guide():
     pdf.add_spacer(0.1)
 
     pdf.add_subsection("Pasos de Instalacion")
-    pdf.add_bullet("<b>Paso 1:</b> Abrir Excel y crear o abrir cualquier libro")
-    pdf.add_bullet("<b>Paso 2:</b> Ir a la pestana Insertar en la cinta de opciones")
-    pdf.add_bullet("<b>Paso 3:</b> Clic en 'Obtener complementos' (o 'Get Add-ins')")
-    pdf.add_bullet("<b>Paso 4:</b> En el cuadro de busqueda, escribir 'Claude for Excel'")
-    pdf.add_bullet("<b>Paso 5:</b> Seleccionar el add-in oficial de Anthropic y clic en 'Agregar'")
-    pdf.add_bullet("<b>Paso 6:</b> Aceptar los permisos solicitados")
-    pdf.add_bullet("<b>Paso 7:</b> El panel de Claude aparecera en la pestana Inicio")
+    pdf.add_bullet("**Paso 1:** Abrir Excel y crear o abrir cualquier libro")
+    pdf.add_bullet("**Paso 2:** Ir a la pestana Insertar en la cinta de opciones")
+    pdf.add_bullet("**Paso 3:** Clic en 'Obtener complementos' (o 'Get Add-ins')")
+    pdf.add_bullet("**Paso 4:** En el cuadro de busqueda, escribir 'Claude for Excel'")
+    pdf.add_bullet("**Paso 5:** Seleccionar el add-in oficial de Anthropic y clic en 'Agregar'")
+    pdf.add_bullet("**Paso 6:** Aceptar los permisos solicitados")
+    pdf.add_bullet("**Paso 7:** El panel de Claude aparecera en la pestana Inicio")
     pdf.add_spacer(0.1)
 
     pdf.add_subsection("Verificacion")
@@ -453,7 +438,7 @@ def _build_claude_guide():
         (
             "2. Deteccion de anomalias en gastos",
             "Revisa esta tabla de gastos mensuales. Identifica movimientos que se "
-            "desvien mas del 30%% del promedio historico de su categoria. Senala "
+            "desvien mas del 30% del promedio historico de su categoria. Senala "
             "cuales podrian requerir revision."
         ),
         (
@@ -523,63 +508,30 @@ def _build_claude_guide():
     )
     pdf.add_spacer(0.15)
 
-    comparison_header = [
-        Paragraph("<b>Caracteristica</b>", pdf.styles["BodyText2"]),
-        Paragraph("<b>Claude (Anthropic)</b>", pdf.styles["BodyText2"]),
-        Paragraph("<b>Copilot (Microsoft)</b>", pdf.styles["BodyText2"]),
+    comparison_data = [
+        ["Caracteristica", "Claude (Anthropic)", "Copilot (Microsoft)"],
+        ["Integracion en Excel", "Add-in desde Marketplace", "Nativo en M365"],
+        ["Analisis profundo de datos", "Excelente", "Bueno"],
+        ["Generacion de formulas", "Excelente (con explicacion)", "Muy bueno"],
+        ["Automatizacion rapida", "Buena (via prompts)", "Excelente (nativo)"],
+        ["Generacion de graficos", "Sugiere configuracion", "Crea directamente"],
+        ["Razonamiento complejo", "Superior", "Bueno"],
+        ["Codigo VBA", "Genera y explica", "Genera"],
+        ["Lenguaje natural en espaniol", "Excelente", "Muy bueno"],
+        ["Privacidad de datos", "No almacena datos", "Segun plan M365"],
+        ["Costo", "Incluido en M365 Pro", "Incluido en M365 Pro/Copilot"],
+        ["Mejor para", "Analisis, razonamiento, auditoria", "Tareas rapidas, automatizacion"],
+        ["Conectores externos (MCP)", "Si, via protocolo MCP", "Si, via Microsoft Graph"],
     ]
-    comparison_data = [comparison_header]
+    pdf.add_table(comparison_data)
 
-    rows = [
-        ("Integracion en Excel", "Add-in desde Marketplace", "Nativo en M365"),
-        ("Analisis profundo de datos", "Excelente", "Bueno"),
-        ("Generacion de formulas", "Excelente (con explicacion)", "Muy bueno"),
-        ("Automatizacion rapida", "Buena (via prompts)", "Excelente (nativo)"),
-        ("Generacion de graficos", "Sugiere configuracion", "Crea directamente"),
-        ("Razonamiento complejo", "Superior", "Bueno"),
-        ("Codigo VBA", "Genera y explica", "Genera"),
-        ("Lenguaje natural en espaniol", "Excelente", "Muy bueno"),
-        ("Privacidad de datos", "No almacena datos", "Segun plan M365"),
-        ("Costo", "Incluido en M365 Pro", "Incluido en M365 Pro/Copilot"),
-        ("Mejor para", "Analisis, razonamiento, auditoria", "Tareas rapidas, automatizacion"),
-        ("Conectores externos (MCP)", "Si, via protocolo MCP", "Si, via Microsoft Graph"),
-    ]
-
-    for caract, claude_val, copilot_val in rows:
-        comparison_data.append([
-            Paragraph(caract, pdf.styles["BodyText2"]),
-            Paragraph(claude_val, pdf.styles["BodyText2"]),
-            Paragraph(copilot_val, pdf.styles["BodyText2"]),
-        ])
-
-    col_widths = [2.2 * inch, 2.4 * inch, 2.4 * inch]
-    style_cmds = [
-        ("FONTNAME", (0, 0), (-1, -1), "Helvetica"),
-        ("FONTSIZE", (0, 0), (-1, -1), 9),
-        ("TEXTCOLOR", (0, 0), (-1, -1), RL_TEXTO),
-        ("ALIGN", (0, 0), (-1, -1), "LEFT"),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("GRID", (0, 0), (-1, -1), 0.5, RL_GRIS_BORDE),
-        ("TOPPADDING", (0, 0), (-1, -1), 4),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-        ("LEFTPADDING", (0, 0), (-1, -1), 5),
-        ("BACKGROUND", (0, 0), (-1, 0), RL_AZUL),
-        ("TEXTCOLOR", (0, 0), (-1, 0), RL_BLANCO),
-        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-    ]
-    for i in range(2, len(comparison_data), 2):
-        style_cmds.append(("BACKGROUND", (0, i), (-1, i), RL_FONDO))
-
-    tbl = Table(comparison_data, colWidths=col_widths, repeatRows=1)
-    tbl.setStyle(TableStyle(style_cmds))
-    pdf.elements.append(tbl)
     pdf.add_spacer(0.2)
 
     pdf.add_text(
-        "<b>Recomendacion:</b> Usa Copilot para tareas rapidas de automatizacion "
+        "**Recomendacion:** Usa Copilot para tareas rapidas de automatizacion "
         "y creacion de graficos. Usa Claude para analisis profundo, razonamiento "
         "sobre datos, auditoria de formulas, y generacion de codigo VBA con "
-        "explicaciones detalladas. Juntos cubren el 95%% de las necesidades."
+        "explicaciones detalladas. Juntos cubren el 95% de las necesidades."
     )
 
     pdf.add_page_break()
@@ -594,7 +546,7 @@ def _build_claude_guide():
 
     pdf.add_subsection("Politica de datos de Claude en Excel")
     pdf.add_bullet(
-        "Claude <b>no almacena</b> los datos de las hojas que procesa en las "
+        "Claude **no almacena** los datos de las hojas que procesa en las "
         "sesiones del add-in"
     )
     pdf.add_bullet(
@@ -602,7 +554,7 @@ def _build_claude_guide():
         "y se descartan despues de generar la respuesta"
     )
     pdf.add_bullet(
-        "Anthropic <b>no usa datos de clientes empresariales</b> para entrenar "
+        "Anthropic **no usa datos de clientes empresariales** para entrenar "
         "sus modelos (politica vigente desde 2024)"
     )
     pdf.add_bullet(
@@ -661,19 +613,19 @@ def _build_claude_guide():
 
     pdf.add_subsection("Casos de uso contable")
     pdf.add_bullet(
-        "<b>Base de datos SQL:</b> Claude consulta directamente el sistema "
+        "**Base de datos SQL:** Claude consulta directamente el sistema "
         "contable y trae datos a Excel para analisis"
     )
     pdf.add_bullet(
-        "<b>SharePoint/OneDrive:</b> Acceso a archivos historicos para "
+        "**SharePoint/OneDrive:** Acceso a archivos historicos para "
         "comparaciones y consolidaciones"
     )
     pdf.add_bullet(
-        "<b>APIs externas:</b> Conexion a servicios del SAT, tipo de cambio "
+        "**APIs externas:** Conexion a servicios del SAT, tipo de cambio "
         "del Banco de Mexico, o INPC actualizado"
     )
     pdf.add_bullet(
-        "<b>Correo y calendario:</b> Consultar fechas limite de declaraciones "
+        "**Correo y calendario:** Consultar fechas limite de declaraciones "
         "y recordatorios de cierre"
     )
     pdf.add_spacer(0.1)
@@ -691,15 +643,15 @@ def _build_claude_guide():
     # ── Seccion final ─────────────────────────────────────────────
     pdf.add_page_break()
     pdf.add_section("Recursos y Enlaces")
-    pdf.add_bullet("<b>Claude para Excel:</b> Marketplace de Microsoft 365")
-    pdf.add_bullet("<b>Documentacion Claude:</b> docs.anthropic.com")
-    pdf.add_bullet("<b>Claude Code:</b> npm install -g @anthropic-ai/claude-code")
-    pdf.add_bullet("<b>MCP Protocol:</b> modelcontextprotocol.io")
-    pdf.add_bullet("<b>Anthropic:</b> anthropic.com")
-    pdf.add_bullet("<b>Comunidad del curso:</b> todoconta.com")
+    pdf.add_bullet("**Claude para Excel:** Marketplace de Microsoft 365")
+    pdf.add_bullet("**Documentacion Claude:** docs.anthropic.com")
+    pdf.add_bullet("**Claude Code:** npm install -g @anthropic-ai/claude-code")
+    pdf.add_bullet("**MCP Protocol:** modelcontextprotocol.io")
+    pdf.add_bullet("**Anthropic:** anthropic.com")
+    pdf.add_bullet("**Comunidad del curso:** todoconta.com")
     pdf.add_spacer(0.2)
     pdf.add_text(
-        "<b>Nota final:</b> La inteligencia artificial es una herramienta que "
+        "**Nota final:** La inteligencia artificial es una herramienta que "
         "amplifica la productividad del profesional contable. El criterio humano, "
         "la etica profesional, y el conocimiento normativo siguen siendo "
         "insustituibles. Usen la IA como su segundo cerebro, pero nunca dejen "
@@ -707,7 +659,6 @@ def _build_claude_guide():
     )
 
     pdf.save()
-    print("PDF 2 - Guia Claude en Excel generado correctamente.")
 
 
 # =====================================================================
@@ -715,7 +666,7 @@ def _build_claude_guide():
 # =====================================================================
 
 def build():
-    """Generate both bonus PDFs."""
+    """Generate both bonus Markdown guides."""
     _build_vba_guide()
     _build_claude_guide()
 

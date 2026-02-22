@@ -1,8 +1,8 @@
 """
-Generador: Guia_Prompts_Copilot_Contadores.pdf
+Generador: Guia_Prompts_Copilot_Contadores.md
 Modulo 5 -- Automatizacion Nativa con Microsoft 365 Copilot
 
-PDF con 20 prompts organizados en 5 categorias para usar
+Markdown con 20 prompts organizados en 5 categorias para usar
 con Microsoft 365 Copilot en Excel.
 """
 import sys
@@ -10,9 +10,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from reportlab.lib.units import inch, cm
 from scripts.config.constants import PACK
-from scripts.generators.pdf_gen import PDFGenerator
+from scripts.generators.md_gen import MarkdownGenerator
 
 OUTPUT_DIR = PACK / "Modulo_5_Copilot_IA"
 
@@ -133,8 +132,8 @@ PROMPTS = {
 
 
 def build():
-    pdf = PDFGenerator(
-        "Guia_Prompts_Copilot_Contadores.pdf",
+    pdf = MarkdownGenerator(
+        "Guia_Prompts_Copilot_Contadores.md",
         OUTPUT_DIR,
         title="Guia de Prompts - Copilot para Contadores",
     )

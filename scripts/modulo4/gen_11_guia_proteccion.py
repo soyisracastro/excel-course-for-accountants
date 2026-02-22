@@ -15,16 +15,15 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from reportlab.lib.units import inch
 from scripts.config.constants import PACK
-from scripts.generators.pdf_gen import PDFGenerator
+from scripts.generators.md_gen import MarkdownGenerator
 
 OUTPUT_DIR = PACK / "Modulo_4_Dashboard"
 
 
 def build():
-    gen = PDFGenerator(
-        "11_Guia_Proteccion_y_Seguridad.pdf",
+    gen = MarkdownGenerator(
+        "11_Guia_Proteccion_y_Seguridad.md",
         OUTPUT_DIR,
         title="Guia de Proteccion y Seguridad en Excel"
     )
