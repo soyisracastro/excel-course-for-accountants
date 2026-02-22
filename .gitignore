@@ -15,6 +15,11 @@ output/**/*.xlsx
 output/**/*.pdf
 output/**/*.pptx
 
+# Archivos obsoletos (reemplazados por CLAUDE.md y README.md)
+context.md
+records/
+Excel para Contadores y Administrativos Automatiza*.md
+
 # OS
 .DS_Store
 Thumbs.db
