@@ -27,6 +27,7 @@ Esta guia contiene 20 prompts disenados especificamente para contadores y admini
 
 **Recuerda:** Copilot es una herramienta de apoyo, no un sustituto de tu criterio profesional. Siempre valida los resultados.
 
+
 ---
 
 ## 1. Analisis de Datos

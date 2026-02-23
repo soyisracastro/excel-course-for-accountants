@@ -1,4 +1,4 @@
-# Módulo 1: Logica Contable y Funciones de Control
+# Modulo 1: Logica Contable y Funciones de Control
 
 ## Slide 1 — Portada
 
@@ -26,7 +26,7 @@ Ahora quiero que hagamos un ejercicio que yo le llamo La Caja Negra. La idea es 
 
 ## Slide 7 — Precision Fiscal: TRUNCAR vs REDONDEAR
 
-Esta diapositiva es crucial para cualquier contador. Hay una diferencia enorme entre TRUNCAR y REDONDEAR, y en el ambito fiscal te puede costar dinero si las confundes. REDONDEAR hace lo que aprendiste en la escuela: si el siguiente digito es 5 o mayor, sube; si es menor que 5, baja. TRUNCAR simplemente corta. No le importa el siguiente digito, simplemente elimina todo lo que esta despues del decimal que le indiques. Veamos un ejemplo: 3.1489 redondeado a 2 decimales es 3.15, porque el tercer decimal es 8, que es mayor a 5, entonces sube. Pero 3.1489 truncado a 2 decimales es 3.14, simplemente corta en el segundo decimal y listo. Ahora, por que importa esto? Porque el articulo 17-A del Codigo Fiscal de la Federacion establece que el Factor de Actualizacion se debe truncar al diezmilésimo, es decir, a 4 decimales. No redondear, truncar. Si tu redondeas en lugar de truncar, tu factor puede ser ligeramente mayor, y eso afecta el monto actualizado. En una auditoria, eso se detecta. Asi que la regla de oro en fiscalidad mexicana es: TRUNCAR es la norma, REDONDEAR es la excepcion. Grabenlo.
+Esta diapositiva es crucial para cualquier contador. Hay una diferencia enorme entre TRUNCAR y REDONDEAR, y en el ambito fiscal te puede costar dinero si las confundes. REDONDEAR hace lo que aprendiste en la escuela: si el siguiente digito es 5 o mayor, sube; si es menor que 5, baja. TRUNCAR simplemente corta. No le importa el siguiente digito, simplemente elimina todo lo que esta despues del decimal que le indiques. Veamos un ejemplo: 3.1489 redondeado a 2 decimales es 3.15, porque el tercer decimal es 8, que es mayor a 5, entonces sube. Pero 3.1489 truncado a 2 decimales es 3.14, simplemente corta en el segundo decimal y listo. Ahora, por que importa esto? Porque el articulo 17-A del Codigo Fiscal de la Federacion establece que el Factor de Actualizacion se debe truncar al diezmilesimo, es decir, a 4 decimales. No redondear, truncar. Si tu redondeas en lugar de truncar, tu factor puede ser ligeramente mayor, y eso afecta el monto actualizado. En una auditoria, eso se detecta. Asi que la regla de oro en fiscalidad mexicana es: TRUNCAR es la norma, REDONDEAR es la excepcion. Grabenlo.
 
 ## Slide 8 — Factor de Actualizacion con INPC 2026
 

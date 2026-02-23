@@ -1,6 +1,6 @@
 # Guia de Referencia
 
-**Modulo 3: Visualización de Impacto y Reportes Ejecutivos**
+**Modulo 3: Visualizacion de Impacto y Reportes Ejecutivos**
 
 *Visualizacion de datos, seleccion de graficos y mejores practicas*
 
@@ -43,6 +43,7 @@ de progreso |
 - Usar efecto 3D (distorsiona las proporciones)
 - Usar doble eje Y sin justificacion clara
 - Usar graficos complejos cuando uno simple basta
+
 ---
 
 ## 2. Checklist de limpieza visual
@@ -75,6 +76,7 @@ Consistentes con el significado |
 
 **Principio de Edward Tufte:** "Maximiza la tinta de datos, minimiza la tinta de decoracion." Cada pixel debe tener un proposito.
 
+
 ---
 
 ## 3. Paleta de colores de referencia
@@ -104,6 +106,7 @@ Usa estos colores de forma consistente en todos tus reportes. Cada color tiene u
 - Usar texturas o patrones ademas de color cuando sea posible
 - Asegurar contraste suficiente entre texto y fondo
 - Probar el grafico en escala de grises para verificar legibilidad
+
 ---
 
 ## 4. Ejercicios practicos
@@ -158,6 +161,7 @@ Completa estos ejercicios usando los archivos del Modulo 3. Cada ejercicio refue
 - Aplica la paleta de colores del curso y limpia el grafico
 
 **Que aprendes:** La combinacion Tabla Dinamica + Grafico Dinamico + Segmentador, que es la base del dashboard del Modulo 4.
+
 
 ---
 

@@ -92,7 +92,7 @@ def build():
             ),
             "ejemplo": (
                 "=TRUNCAR(141.200/136.163, 4) — Calcula el Factor de Actualizacion "
-                "truncado al diezmilésimo: 1.0369."
+                "truncado al diezmilesimo: 1.0369."
             ),
         },
         {
@@ -173,7 +173,7 @@ def build():
     gen.add_page_break()
     gen.add_section("Tarifa ISR Anual 2026 — Art. 152 LISR (Anexo 8 RMF)")
     gen.add_text(
-        "Tarifa actualizada por inflacion acumulada >10%% desde noviembre 2022. "
+        "Tarifa actualizada por inflacion acumulada >10% desde noviembre 2022. "
         "Publicada en el DOF el 28 de diciembre de 2025."
     )
     gen.add_spacer(0.1)
@@ -229,7 +229,7 @@ def build():
         "Factor = 141.200 / 136.163 = 1.036996..."
     )
 
-    gen.add_subsection("Paso 4: Truncar a 4 decimales (diezmilésimo)")
+    gen.add_subsection("Paso 4: Truncar a 4 decimales (diezmilesimo)")
     gen.add_text(
         "El Art. 17-A CFF establece que el factor se trunca, NO se redondea. "
         "En Excel: =TRUNCAR(141.200/136.163, 4) = <b>1.0369</b>"

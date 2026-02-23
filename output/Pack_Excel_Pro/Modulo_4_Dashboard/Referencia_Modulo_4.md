@@ -50,6 +50,7 @@ El mensaje principal de tu dashboard debe entenderse en 5 segundos. Si necesitas
 - Usa bordes solo donde agreguen claridad (no en todas las celdas)
 - Alinea los elementos visual y consistentemente
 - Usa una sola familia tipografica (Calibri recomendado)
+
 ---
 
 ## 2. Segmentadores de Datos (Slicers) -- Paso a Paso
@@ -61,7 +62,7 @@ Los segmentadores son filtros visuales para Tablas Dinamicas. Permiten crear das
 
 - Tus datos deben estar en formato de Tabla (Ctrl+T) o Tabla Dinamica
 - Cada columna debe tener un encabezado unico y descriptivo
-- No deben haber filas ni columnas vacias dentro de los datos
+- No debe haber filas ni columnas vacias dentro de los datos
 
 ### Paso 2: Crear la Tabla Dinamica
 

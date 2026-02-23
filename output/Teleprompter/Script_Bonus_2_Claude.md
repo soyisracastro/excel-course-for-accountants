@@ -1,4 +1,4 @@
-# Módulo : Claude en Excel: Tu Segundo Cerebro Contable
+# Claude en Excel: Tu Segundo Cerebro Contable
 
 ## Slide 1 — Portada
 
@@ -66,7 +66,7 @@ Pueden pedirle formulas mucho mas complejas: INDICE/COINCIDIR con multiples crit
 
 Este caso es mi favorito. Quien no ha recibido un archivo de Excel del contador anterior con formulas que parecen escritas en jeroglificos?
 
-Seleccionan la celda, copian la formula, y le dicen a Claude: 'Explicame que hace esta formula paso a paso, en espaniol, como si yo fuera contador y no programador.'
+Seleccionan la celda, copian la formula, y le dicen a Claude: 'Explicame que hace esta formula paso a paso, en espanol, como si yo fuera contador y no programador.'
 
 Claude descompone cada funcion: 'Primero, SI evalua si B2 es mayor a 10000. Si es verdadero, aplica BUSCARV en la tabla de tarifas. El resultado se multiplica por el factor de la celda H1. Si es falso, devuelve 0.'
 
@@ -96,7 +96,7 @@ Claude Code genera un script en Python, lo ejecuta, y les entrega el archivo con
 
 No es necesario que sepan Python. Claude Code lo genera por ustedes. Solo necesitan describir lo que quieren lograr.
 
-El add-in en Excel es para analisis interactivo. Claude Code es para automatizacion en lote. Juntos cubren el 95%% de las necesidades.
+El add-in en Excel es para analisis interactivo. Claude Code es para automatizacion en lote. Juntos cubren el 95% de las necesidades.
 
 
 ## Slide 10 — Mejores Practicas: Validacion y Privacidad

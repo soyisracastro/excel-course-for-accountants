@@ -21,7 +21,7 @@ Israel Castro — CPA & Software Engineer — Excel para Contadores y Administra
 - Claude: 'Analiza tendencias de las ultimas 12 nominas y sugiere ajustes' -> profundo
 - No son competencia: son complementos
 - Copilot para automatizacion rapida + Claude para analisis complejo
-- Ambos funcionan con lenguaje natural en espaniol
+- Ambos funcionan con lenguaje natural en espanol
 
 ## Instalacion del Add-in desde Microsoft Marketplace
 
@@ -57,7 +57,7 @@ Israel Castro — CPA & Software Engineer — Excel para Contadores y Administra
 
 ## Caso 3: Explicacion de Formula Heredada
 
-- Escenario: reciben archivo de contador anterior con formulas crípticas
+- Escenario: reciben archivo de contador anterior con formulas complejas
 - Seleccionar celda con formula compleja
 - Prompt: 'Explicame que hace esta formula paso a paso'
 - Claude descompone cada funcion anidada
@@ -93,7 +93,7 @@ Israel Castro — CPA & Software Engineer — Excel para Contadores y Administra
 - Datos sensibles: verificar politica de privacidad de su organizacion
 - Claude NO almacena datos de las hojas de calculo procesadas
 - Para datos altamente confidenciales: usar Claude en modo local/privado
-- No depender 100%% de la IA: el criterio contable es insustituible
+- No depender 100% de la IA: el criterio contable es insustituible
 - Documentar prompts utiles para reutilizarlos (crear biblioteca de prompts)
 - Capacitar al equipo: la IA amplifica la productividad de todos
 

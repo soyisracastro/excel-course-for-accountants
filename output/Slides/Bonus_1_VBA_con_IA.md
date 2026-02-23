@@ -31,7 +31,7 @@ Israel Castro — CPA & Software Engineer — Excel para Contadores y Administra
 -    2. Tarea: 'Necesito una macro que formatee las columnas A:H...'
 -    3. Detalles: 'Separador de miles, bordes, encabezado azul...'
 -    4. Restriccion: 'Compatible con Excel 2019 o superior'
-- Pedir que incluya comentarios en espaniol
+- Pedir que incluya comentarios en espanol
 - Siempre probar en copia del archivo, nunca en el original
 
 ## Ejemplo 1: Macro FormatearNomina()

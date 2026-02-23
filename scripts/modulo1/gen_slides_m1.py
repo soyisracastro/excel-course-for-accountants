@@ -185,7 +185,7 @@ def build():
             "=TRUNCAR(3.14159, 2)   -> 3.14  (corta sin redondear)",
             "=REDONDEAR(3.1489, 2)  -> 3.15  (redondeo sube)",
             "=TRUNCAR(3.1489, 2)    -> 3.14  (truncar siempre corta)",
-            "Art. 17-A CFF: Factor de Actualizacion se trunca al diezmilésimo (4 decimales)",
+            "Art. 17-A CFF: Factor de Actualizacion se trunca al diezmilesimo (4 decimales)",
             "=TRUNCAR(INPC_reciente / INPC_anterior, 4)",
             "En fiscalidad: TRUNCAR es la regla, REDONDEAR es la excepcion",
         ],
@@ -199,7 +199,7 @@ def build():
             "es 8, que es mayor a 5, entonces sube. Pero 3.1489 truncado a 2 decimales es 3.14, "
             "simplemente corta en el segundo decimal y listo. Ahora, por que importa esto? Porque "
             "el articulo 17-A del Codigo Fiscal de la Federacion establece que el Factor de "
-            "Actualizacion se debe truncar al diezmilésimo, es decir, a 4 decimales. No redondear, "
+            "Actualizacion se debe truncar al diezmilesimo, es decir, a 4 decimales. No redondear, "
             "truncar. Si tu redondeas en lugar de truncar, tu factor puede ser ligeramente mayor, y "
             "eso afecta el monto actualizado. En una auditoria, eso se detecta. Asi que la regla de "
             "oro en fiscalidad mexicana es: TRUNCAR es la norma, REDONDEAR es la excepcion. Grabenlo."

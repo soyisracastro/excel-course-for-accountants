@@ -1,4 +1,4 @@
-# MÓDULO 3: Visualización de Impacto y Reportes Ejecutivos
+# MODULO 3: Visualizacion de Impacto y Reportes Ejecutivos
 
 *Graficos que cuentan historias, no solo muestran numeros*
 

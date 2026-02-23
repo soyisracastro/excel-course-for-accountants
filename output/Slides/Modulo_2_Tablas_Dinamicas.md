@@ -1,4 +1,4 @@
-# MÓDULO 2: Procesamiento Masivo y Análisis con Tablas Dinámicas
+# MODULO 2: Procesamiento Masivo y Analisis con Tablas Dinamicas
 
 *De datos crudos a analisis profesional en minutos*
 

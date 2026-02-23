@@ -61,7 +61,7 @@ def _build_vba_guide():
             "Prompt basico",
             "Genera una macro VBA para Excel que [TAREA]. "
             "Los datos estan en la hoja [NOMBRE] en el rango [RANGO]. "
-            "Incluye comentarios en espaniol. Compatible con Excel [VERSION]."
+            "Incluye comentarios en espanol. Compatible con Excel [VERSION]."
         ),
         (
             "Prompt con formato",
@@ -149,7 +149,7 @@ def _build_vba_guide():
         "en la hoja activa. La macro debe: aplicar formato #,##0.00 a las columnas "
         "E:H desde fila 2, bordes delgados a todo el rango con datos, pintar la "
         "fila 1 de azul RGB(37,99,235) con texto blanco y negrita, y autoajustar "
-        "columnas. Mostrar MsgBox al terminar. Comentarios en espaniol."
+        "columnas. Mostrar MsgBox al terminar. Comentarios en espanol."
     )
 
     pdf.add_page_break()
@@ -188,7 +188,7 @@ def _build_vba_guide():
         "Genera una macro VBA llamada LimpiarVacias. Debe recorrer la seleccion "
         "actual del usuario de abajo hacia arriba. Si una fila esta completamente "
         "vacia (CountA = 0), eliminarla con EntireRow.Delete. Mostrar MsgBox al "
-        "terminar. Comentarios en espaniol."
+        "terminar. Comentarios en espanol."
     )
 
     pdf.add_page_break()
@@ -247,7 +247,7 @@ def _build_vba_guide():
         "con nombre Reporte_[Mes]_[Anio] usando la fecha actual. Verificar que la "
         "hoja no exista antes de crearla. En A1 poner titulo con formato MMMM YYYY, "
         "en A2 poner fecha y hora de generacion. A1 en negrita tamano 14. MsgBox "
-        "al terminar. Comentarios en espaniol."
+        "al terminar. Comentarios en espanol."
     )
 
     pdf.add_page_break()
@@ -287,7 +287,7 @@ def _build_vba_guide():
         "Genera una macro VBA llamada ActualizarPivots. Debe recorrer todas las "
         "hojas del libro activo, y para cada hoja recorrer todas sus tablas dinamicas "
         "y ejecutar RefreshTable. Contar cuantas tablas se actualizaron y mostrarlo "
-        "en un MsgBox. Comentarios en espaniol."
+        "en un MsgBox. Comentarios en espanol."
     )
 
     pdf.add_page_break()
@@ -338,7 +338,7 @@ def _build_vba_guide():
         "como PDF usando ExportAsFixedFormat. El nombre del archivo debe ser "
         "[NombreHoja]_[Fecha].pdf y guardarse en la misma carpeta del libro. "
         "Verificar que el libro este guardado antes de exportar. Abrir el PDF "
-        "despues de crearlo. MsgBox con la ruta. Comentarios en espaniol."
+        "despues de crearlo. MsgBox con la ruta. Comentarios en espanol."
     )
 
     # ── Seccion final: Tips ───────────────────────────────────────
@@ -517,7 +517,7 @@ def _build_claude_guide():
         ["Generacion de graficos", "Sugiere configuracion", "Crea directamente"],
         ["Razonamiento complejo", "Superior", "Bueno"],
         ["Codigo VBA", "Genera y explica", "Genera"],
-        ["Lenguaje natural en espaniol", "Excelente", "Muy bueno"],
+        ["Lenguaje natural en espanol", "Excelente", "Muy bueno"],
         ["Privacidad de datos", "No almacena datos", "Segun plan M365"],
         ["Costo", "Incluido en M365 Pro", "Incluido en M365 Pro/Copilot"],
         ["Mejor para", "Analisis, razonamiento, auditoria", "Tareas rapidas, automatizacion"],

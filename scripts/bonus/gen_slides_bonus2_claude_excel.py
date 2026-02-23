@@ -82,7 +82,7 @@ def build():
             "Claude: 'Analiza tendencias de las ultimas 12 nominas y sugiere ajustes' -> profundo",
             "No son competencia: son complementos",
             "Copilot para automatizacion rapida + Claude para analisis complejo",
-            "Ambos funcionan con lenguaje natural en espaniol",
+            "Ambos funcionan con lenguaje natural en espanol",
         ],
         script_text=(
             "La pregunta que todos hacen: y entonces, uso Copilot o uso Claude?\n\n"
@@ -187,7 +187,7 @@ def build():
     gen.add_content_slide(
         title="Caso 3: Explicacion de Formula Heredada",
         bullets=[
-            "Escenario: reciben archivo de contador anterior con formulas crípticas",
+            "Escenario: reciben archivo de contador anterior con formulas complejas",
             "Seleccionar celda con formula compleja",
             "Prompt: 'Explicame que hace esta formula paso a paso'",
             "Claude descompone cada funcion anidada",
@@ -199,7 +199,7 @@ def build():
             "Este caso es mi favorito. Quien no ha recibido un archivo de Excel del "
             "contador anterior con formulas que parecen escritas en jeroglificos?\n\n"
             "Seleccionan la celda, copian la formula, y le dicen a Claude: 'Explicame "
-            "que hace esta formula paso a paso, en espaniol, como si yo fuera contador "
+            "que hace esta formula paso a paso, en espanol, como si yo fuera contador "
             "y no programador.'\n\n"
             "Claude descompone cada funcion: 'Primero, SI evalua si B2 es mayor a 10000. "
             "Si es verdadero, aplica BUSCARV en la tabla de tarifas. El resultado se "
@@ -265,7 +265,7 @@ def build():
             "No es necesario que sepan Python. Claude Code lo genera por ustedes. Solo "
             "necesitan describir lo que quieren lograr.\n\n"
             "El add-in en Excel es para analisis interactivo. Claude Code es para "
-            "automatizacion en lote. Juntos cubren el 95%% de las necesidades.\n"
+            "automatizacion en lote. Juntos cubren el 95% de las necesidades.\n"
         ),
     )
 
@@ -277,7 +277,7 @@ def build():
             "Datos sensibles: verificar politica de privacidad de su organizacion",
             "Claude NO almacena datos de las hojas de calculo procesadas",
             "Para datos altamente confidenciales: usar Claude en modo local/privado",
-            "No depender 100%% de la IA: el criterio contable es insustituible",
+            "No depender 100% de la IA: el criterio contable es insustituible",
             "Documentar prompts utiles para reutilizarlos (crear biblioteca de prompts)",
             "Capacitar al equipo: la IA amplifica la productividad de todos",
         ],

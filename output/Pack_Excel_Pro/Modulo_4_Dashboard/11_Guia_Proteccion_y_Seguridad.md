@@ -61,6 +61,7 @@ Proteger una hoja impide que los usuarios modifiquen celdas bloqueadas, pero per
 - IMPORTANTE: La proteccion de hoja NO es cifrado fuerte
 - No confies en ella para datos altamente confidenciales
 - Para datos sensibles, usa contrasena de apertura de archivo (ver seccion 3)
+
 ---
 
 ## 3. Proteccion de Libro
@@ -109,6 +110,7 @@ La forma de compartir depende de lo que necesitas que haga el destinatario.
 - O bien: Archivo > Exportar > Crear documento PDF/XPS
 - Selecciona las hojas a incluir antes de guardar
 - Tip: Configura el area de impresion antes (Diseno de pagina > Area de impresion)
+
 ---
 
 ## 5. Convenciones de Nombres Profesionales

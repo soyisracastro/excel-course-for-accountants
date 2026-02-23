@@ -1,4 +1,4 @@
-# Módulo 3: Visualización de Impacto y Reportes Ejecutivos
+# Modulo 3: Visualizacion de Impacto y Reportes Ejecutivos
 
 ## Slide 1 — Portada
 
@@ -26,7 +26,7 @@ Veamos un caso concreto. Tenemos cinco vendedores y queremos saber quien vendio 
 
 ## Slide 6 — Caso practico: Productos mas vendidos (grafico de pastel)
 
-Ahora veamos cuando si tiene sentido usar un pastel. Imaginen que quieren mostrar que porcentaje del total de ventas representa cada producto. Si son cinco productos, perfecto: el pastel queda limpio. Pero si tienen quince productos, agrúpenlos: los top cinco por nombre y el resto como Otros. Nunca usen el efecto 3D -- se ve bonito pero engana al ojo; las rebanadas de atras parecen mas chicas de lo que son. Y un ultimo tip: si el pastel no se ve claro, cambien a barras apiladas al cien por ciento -- misma informacion, mas facil de leer.
+Ahora veamos cuando si tiene sentido usar un pastel. Imaginen que quieren mostrar que porcentaje del total de ventas representa cada producto. Si son cinco productos, perfecto: el pastel queda limpio. Pero si tienen quince productos, agrupenlos: los top cinco por nombre y el resto como Otros. Nunca usen el efecto 3D -- se ve bonito pero engana al ojo; las rebanadas de atras parecen mas chicas de lo que son. Y un ultimo tip: si el pastel no se ve claro, cambien a barras apiladas al cien por ciento -- misma informacion, mas facil de leer.
 
 
 ## Slide 7 — Limpieza visual: menos es mas
@@ -46,7 +46,7 @@ Abran el archivo 07 de Dashboard de Ventas de Combustible. Este es un caso real 
 
 ## Slide 10 — Lectura de estacionalidad en el grafico
 
-Ahora leamos el grafico como un contador. Vean enero: es el mes mas bajo. Le llaman la cuesta de enero porque la gente gasto todo en diciembre y en enero no tiene dinero. Pero conforme avanzan los meses, las ventas suben. El pico esta en julio -- vacaciones de verano, la gente viaja, se mueve, consume gasolina. Luego baja en el ultimo trimestre. Diciembre baja un poco porque el gasto se desvía a regalos y cenas. Esta informacion no es solo curiosidad -- si yo soy el administrador de la gasolinera, necesito comprar mas combustible en junio y puedo negociar mejores precios con el proveedor sabiendo que en enero la demanda baja. El grafico me ayuda a planear mi flujo de efectivo.
+Ahora leamos el grafico como un contador. Vean enero: es el mes mas bajo. Le llaman la cuesta de enero porque la gente gasto todo en diciembre y en enero no tiene dinero. Pero conforme avanzan los meses, las ventas suben. El pico esta en julio -- vacaciones de verano, la gente viaja, se mueve, consume gasolina. Luego baja en el ultimo trimestre. Diciembre baja un poco porque el gasto se desvia a regalos y cenas. Esta informacion no es solo curiosidad -- si yo soy el administrador de la gasolinera, necesito comprar mas combustible en junio y puedo negociar mejores precios con el proveedor sabiendo que en enero la demanda baja. El grafico me ayuda a planear mi flujo de efectivo.
 
 
 ## Slide 11 — Comparativa anual: 2024 vs 2025

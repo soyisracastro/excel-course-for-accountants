@@ -34,7 +34,7 @@ Cada tarjeta resume la sintaxis, descripcion y un ejemplo contable de las funcio
 | Sintaxis | =TRUNCAR(numero, num_decimales) |
 | --- | --- |
 | Descripcion | Corta un numero al numero de decimales indicado SIN redondear. Obligatorio para Factor de Actualizacion (Art. 17-A CFF, 4 decimales). |
-| Ejemplo contable | =TRUNCAR(141.200/136.163, 4) — Calcula el Factor de Actualizacion truncado al diezmilésimo: 1.0369. |
+| Ejemplo contable | =TRUNCAR(141.200/136.163, 4) — Calcula el Factor de Actualizacion truncado al diezmilesimo: 1.0369. |
 
 
 ### SI
@@ -81,7 +81,7 @@ Cada tarjeta resume la sintaxis, descripcion y un ejemplo contable de las funcio
 
 ## Tarifa ISR Anual 2026 — Art. 152 LISR (Anexo 8 RMF)
 
-Tarifa actualizada por inflacion acumulada >10%% desde noviembre 2022. Publicada en el DOF el 28 de diciembre de 2025.
+Tarifa actualizada por inflacion acumulada >10% desde noviembre 2022. Publicada en el DOF el 28 de diciembre de 2025.
 
 
 | Limite Inferior | Limite Superior | Cuota Fija | % Excedente |
@@ -100,6 +100,7 @@ Tarifa actualizada por inflacion acumulada >10%% desde noviembre 2022. Publicada
 
 
 **Procedimiento de calculo:** (1) Ubicar la base gravable en la tarifa. (2) Restar el limite inferior. (3) Multiplicar el excedente por el porcentaje. (4) Sumar la cuota fija. Resultado = ISR del ejercicio.
+
 
 ---
 
@@ -120,7 +121,7 @@ Consulta los valores en la pagina del INEGI o en el DOF. INPC Dic 2025 = 141.200
 
 Factor = 141.200 / 136.163 = 1.036996...
 
-### Paso 4: Truncar a 4 decimales (diezmilésimo)
+### Paso 4: Truncar a 4 decimales (diezmilesimo)
 
 El Art. 17-A CFF establece que el factor se trunca, NO se redondea. En Excel: =TRUNCAR(141.200/136.163, 4) = **1.0369**
 

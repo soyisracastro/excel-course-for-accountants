@@ -92,15 +92,15 @@ Ademas de Microsoft Copilot, estas herramientas de IA pueden potenciar tu trabaj
 A lo largo de 5 modulos, este curso te llevo del dato crudo al insight accionable con herramientas modernas de Excel.
 
 
-### Modulo 1: Lógica Contable y Funciones de Control
+### Modulo 1: Logica Contable y Funciones de Control
 
-### Modulo 2: Procesamiento Masivo y Análisis con Tablas Dinámicas
+### Modulo 2: Procesamiento Masivo y Analisis con Tablas Dinamicas
 
-### Modulo 3: Visualización de Impacto y Reportes Ejecutivos
+### Modulo 3: Visualizacion de Impacto y Reportes Ejecutivos
 
 ### Modulo 4: El Dashboard Inteligente y Entrega Profesional
 
-### Modulo 5: Automatización Nativa con Microsoft 365 Copilot
+### Modulo 5: Automatizacion Nativa con Microsoft 365 Copilot
 
 
 **Modulo 1 - Logica Contable y Funciones de Control**

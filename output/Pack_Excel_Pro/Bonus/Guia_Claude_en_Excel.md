@@ -34,6 +34,7 @@ Desde enero de 2026, Claude esta disponible como add-in oficial para suscriptore
 
 Para verificar que la instalacion fue exitosa, abrir el panel lateral de Claude y escribir una pregunta simple como 'Hola, que puedes hacer con esta hoja?'. Claude debe responder con una descripcion de sus capacidades.
 
+
 ---
 
 ## 10 Prompts Contables para Claude en Excel
@@ -127,7 +128,7 @@ Ambas herramientas son complementarias. Esta tabla resume las diferencias princi
 | Generacion de graficos | Sugiere configuracion | Crea directamente |
 | Razonamiento complejo | Superior | Bueno |
 | Codigo VBA | Genera y explica | Genera |
-| Lenguaje natural en espaniol | Excelente | Muy bueno |
+| Lenguaje natural en espanol | Excelente | Muy bueno |
 | Privacidad de datos | No almacena datos | Segun plan M365 |
 | Costo | Incluido en M365 Pro | Incluido en M365 Pro/Copilot |
 | Mejor para | Analisis, razonamiento, auditoria | Tareas rapidas, automatizacion |
@@ -135,6 +136,7 @@ Ambas herramientas son complementarias. Esta tabla resume las diferencias princi
 
 
 **Recomendacion:** Usa Copilot para tareas rapidas de automatizacion y creacion de graficos. Usa Claude para analisis profundo, razonamiento sobre datos, auditoria de formulas, y generacion de codigo VBA con explicaciones detalladas. Juntos cubren el 95% de las necesidades.
+
 
 ---
 
@@ -157,6 +159,7 @@ Al usar inteligencia artificial con datos empresariales, es fundamental entender
 - Para datos altamente confidenciales, considerar Claude en modo empresarial con politicas de retencion personalizadas
 - Siempre validar las respuestas de la IA antes de tomar decisiones basadas en ellas
 - Documentar el uso de IA en procesos contables para cumplimiento normativo y auditoria
+
 ---
 
 ## MCP (Model Context Protocol): Vision General
@@ -184,6 +187,7 @@ MCP es un protocolo abierto creado por Anthropic que permite a Claude conectarse
 - Coordinar con el area de TI para configurar conectores organizacionales
 - Empezar con conectores de solo lectura (consulta) antes de habilitar escritura
 - Claude Code (terminal) soporta MCP de forma nativa para automatizacion avanzada
+
 ---
 
 ## Recursos y Enlaces

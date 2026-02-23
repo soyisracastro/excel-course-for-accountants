@@ -1,4 +1,4 @@
-# MÓDULO 4: El Dashboard Inteligente y Entrega Profesional
+# MODULO 4: El Dashboard Inteligente y Entrega Profesional
 
 *ISR + Nomina + Graficos = Dashboard Profesional*
 

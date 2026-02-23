@@ -35,13 +35,19 @@ class SlidesGenerator:
         self.slide_count += 1
 
         # Slide content for gamma.app
-        self.slide_lines.append(f"# {'MÓDULO ' + str(modulo_num) + ': ' if modulo_num else ''}{modulo_nombre}\n")
+        if modulo_num:
+            self.slide_lines.append(f"# MODULO {modulo_num}: {modulo_nombre}\n")
+        else:
+            self.slide_lines.append(f"# {modulo_nombre}\n")
         if subtitulo:
             self.slide_lines.append(f"*{subtitulo}*\n")
         self.slide_lines.append(f"{INSTRUCTOR} — {INSTRUCTOR_TITULO} — {CURSO_NOMBRE} {ANIO}\n")
 
         # Teleprompter script
-        self.script_lines.append(f"# Módulo {modulo_num}: {modulo_nombre}\n")
+        if modulo_num:
+            self.script_lines.append(f"# Modulo {modulo_num}: {modulo_nombre}\n")
+        else:
+            self.script_lines.append(f"# {modulo_nombre}\n")
         self.script_lines.append(f"## Slide 1 — Portada\n")
 
     def add_content_slide(self, title, bullets=None, body_text=None,

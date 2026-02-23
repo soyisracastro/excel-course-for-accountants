@@ -1,4 +1,4 @@
-# MÓDULO 1: Logica Contable y Funciones de Control
+# MODULO 1: Logica Contable y Funciones de Control
 
 Israel Castro — CPA & Software Engineer — Excel para Contadores y Administrativos 2026
 
@@ -56,7 +56,7 @@ Israel Castro — CPA & Software Engineer — Excel para Contadores y Administra
 - =TRUNCAR(3.14159, 2)   -> 3.14  (corta sin redondear)
 - =REDONDEAR(3.1489, 2)  -> 3.15  (redondeo sube)
 - =TRUNCAR(3.1489, 2)    -> 3.14  (truncar siempre corta)
-- Art. 17-A CFF: Factor de Actualizacion se trunca al diezmilésimo (4 decimales)
+- Art. 17-A CFF: Factor de Actualizacion se trunca al diezmilesimo (4 decimales)
 - =TRUNCAR(INPC_reciente / INPC_anterior, 4)
 - En fiscalidad: TRUNCAR es la regla, REDONDEAR es la excepcion
 

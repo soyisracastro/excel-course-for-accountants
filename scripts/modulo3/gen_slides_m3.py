@@ -142,7 +142,7 @@ def build():
         script_text=(
             "Ahora veamos cuando si tiene sentido usar un pastel. Imaginen que quieren mostrar "
             "que porcentaje del total de ventas representa cada producto. Si son cinco productos, "
-            "perfecto: el pastel queda limpio. Pero si tienen quince productos, agrúpenlos: "
+            "perfecto: el pastel queda limpio. Pero si tienen quince productos, agrupenlos: "
             "los top cinco por nombre y el resto como Otros. Nunca usen el efecto 3D -- se ve "
             "bonito pero engana al ojo; las rebanadas de atras parecen mas chicas de lo que son. "
             "Y un ultimo tip: si el pastel no se ve claro, cambien a barras apiladas al cien "
@@ -236,7 +236,7 @@ def build():
             "no tiene dinero. Pero conforme avanzan los meses, las ventas suben. El pico esta "
             "en julio -- vacaciones de verano, la gente viaja, se mueve, consume gasolina. "
             "Luego baja en el ultimo trimestre. Diciembre baja un poco porque el gasto se "
-            "desvía a regalos y cenas. Esta informacion no es solo curiosidad -- si yo soy el "
+            "desvia a regalos y cenas. Esta informacion no es solo curiosidad -- si yo soy el "
             "administrador de la gasolinera, necesito comprar mas combustible en junio y puedo "
             "negociar mejores precios con el proveedor sabiendo que en enero la demanda baja. "
             "El grafico me ayuda a planear mi flujo de efectivo.\n"

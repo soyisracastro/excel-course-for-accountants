@@ -98,7 +98,7 @@ def build():
     gen.add_subsection("Paso 1: Preparar tus datos")
     gen.add_bullet("Tus datos deben estar en formato de Tabla (Ctrl+T) o Tabla Dinamica")
     gen.add_bullet("Cada columna debe tener un encabezado unico y descriptivo")
-    gen.add_bullet("No deben haber filas ni columnas vacias dentro de los datos")
+    gen.add_bullet("No debe haber filas ni columnas vacias dentro de los datos")
     gen.add_spacer(0.1)
 
     gen.add_subsection("Paso 2: Crear la Tabla Dinamica")

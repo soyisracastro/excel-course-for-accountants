@@ -1,4 +1,4 @@
-# Módulo 2: Procesamiento Masivo y Análisis con Tablas Dinámicas
+# Modulo 2: Procesamiento Masivo y Analisis con Tablas Dinamicas
 
 ## Slide 1 — Portada
 

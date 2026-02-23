@@ -68,6 +68,8 @@ class MarkdownGenerator:
 
     def add_page_break(self):
         """Add a page break (horizontal rule)."""
+        if self.lines and self.lines[-1] != "":
+            self.lines.append("")
         self.lines.append("---\n")
 
     def add_table(self, data, col_widths=None, header=True):

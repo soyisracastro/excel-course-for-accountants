@@ -104,7 +104,7 @@ def build():
             "   2. Tarea: 'Necesito una macro que formatee las columnas A:H...'",
             "   3. Detalles: 'Separador de miles, bordes, encabezado azul...'",
             "   4. Restriccion: 'Compatible con Excel 2019 o superior'",
-            "Pedir que incluya comentarios en espaniol",
+            "Pedir que incluya comentarios en espanol",
             "Siempre probar en copia del archivo, nunca en el original",
         ],
         script_text=(
@@ -115,7 +115,7 @@ def build():
             "PROMPT: 'Genera una macro VBA para Excel. Tengo una hoja llamada Nomina con "
             "datos en A1:H50. La macro debe: aplicar formato de miles con 2 decimales a "
             "las columnas E, F, G y H; poner bordes delgados a todo el rango; pintar la "
-            "fila 1 de azul con texto blanco. Incluye comentarios en espaniol. Compatible "
+            "fila 1 de azul con texto blanco. Incluye comentarios en espanol. Compatible "
             "con Excel 2019.'\n\n"
             "Eso es todo. La IA les regresa el codigo listo para copiar y pegar. "
             "Siempre prueben en una copia del archivo, nunca en el original.\n"

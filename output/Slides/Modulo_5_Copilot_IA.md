@@ -1,4 +1,4 @@
-# MÓDULO 5: Automatización Nativa con Microsoft 365 Copilot
+# MODULO 5: Automatizacion Nativa con Microsoft 365 Copilot
 
 *Inteligencia Artificial aplicada a datos contables en Excel*
 

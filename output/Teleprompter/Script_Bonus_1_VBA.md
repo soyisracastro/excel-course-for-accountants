@@ -1,4 +1,4 @@
-# Módulo : Automatizacion con Macros Asistidas por IA
+# Automatizacion con Macros Asistidas por IA
 
 ## Slide 1 — Portada
 
@@ -30,7 +30,7 @@ Aqui esta la magia. Ustedes no necesitan aprender a programar en VBA. Necesitan 
 
 Un buen prompt tiene 4 partes: contexto, tarea, detalles y restriccion. Por ejemplo:
 
-PROMPT: 'Genera una macro VBA para Excel. Tengo una hoja llamada Nomina con datos en A1:H50. La macro debe: aplicar formato de miles con 2 decimales a las columnas E, F, G y H; poner bordes delgados a todo el rango; pintar la fila 1 de azul con texto blanco. Incluye comentarios en espaniol. Compatible con Excel 2019.'
+PROMPT: 'Genera una macro VBA para Excel. Tengo una hoja llamada Nomina con datos en A1:H50. La macro debe: aplicar formato de miles con 2 decimales a las columnas E, F, G y H; poner bordes delgados a todo el rango; pintar la fila 1 de azul con texto blanco. Incluye comentarios en espanol. Compatible con Excel 2019.'
 
 Eso es todo. La IA les regresa el codigo listo para copiar y pegar. Siempre prueben en una copia del archivo, nunca en el original.
 

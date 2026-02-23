@@ -23,7 +23,7 @@ Usa estas plantillas como punto de partida para pedirle a la IA que genere macro
 ### Prompt basico
 
 ```
-Genera una macro VBA para Excel que [TAREA]. Los datos estan en la hoja [NOMBRE] en el rango [RANGO]. Incluye comentarios en espaniol. Compatible con Excel [VERSION].
+Genera una macro VBA para Excel que [TAREA]. Los datos estan en la hoja [NOMBRE] en el rango [RANGO]. Incluye comentarios en espanol. Compatible con Excel [VERSION].
 ```
 
 
@@ -106,8 +106,9 @@ End Sub
 ### Prompt para generarla
 
 ```
-Genera una macro VBA llamada FormatearNomina para Excel. Los datos estan en la hoja activa. La macro debe: aplicar formato #,##0.00 a las columnas E:H desde fila 2, bordes delgados a todo el rango con datos, pintar la fila 1 de azul RGB(37,99,235) con texto blanco y negrita, y autoajustar columnas. Mostrar MsgBox al terminar. Comentarios en espaniol.
+Genera una macro VBA llamada FormatearNomina para Excel. Los datos estan en la hoja activa. La macro debe: aplicar formato #,##0.00 a las columnas E:H desde fila 2, bordes delgados a todo el rango con datos, pintar la fila 1 de azul RGB(37,99,235) con texto blanco y negrita, y autoajustar columnas. Mostrar MsgBox al terminar. Comentarios en espanol.
 ```
+
 
 ---
 
@@ -145,8 +146,9 @@ End Sub
 ### Prompt para generarla
 
 ```
-Genera una macro VBA llamada LimpiarVacias. Debe recorrer la seleccion actual del usuario de abajo hacia arriba. Si una fila esta completamente vacia (CountA = 0), eliminarla con EntireRow.Delete. Mostrar MsgBox al terminar. Comentarios en espaniol.
+Genera una macro VBA llamada LimpiarVacias. Debe recorrer la seleccion actual del usuario de abajo hacia arriba. Si una fila esta completamente vacia (CountA = 0), eliminarla con EntireRow.Delete. Mostrar MsgBox al terminar. Comentarios en espanol.
 ```
+
 
 ---
 
@@ -202,8 +204,9 @@ End Sub
 ### Prompt para generarla
 
 ```
-Genera una macro VBA llamada ReporteMensual. Debe crear una hoja nueva con nombre Reporte_[Mes]_[Anio] usando la fecha actual. Verificar que la hoja no exista antes de crearla. En A1 poner titulo con formato MMMM YYYY, en A2 poner fecha y hora de generacion. A1 en negrita tamano 14. MsgBox al terminar. Comentarios en espaniol.
+Genera una macro VBA llamada ReporteMensual. Debe crear una hoja nueva con nombre Reporte_[Mes]_[Anio] usando la fecha actual. Verificar que la hoja no exista antes de crearla. En A1 poner titulo con formato MMMM YYYY, en A2 poner fecha y hora de generacion. A1 en negrita tamano 14. MsgBox al terminar. Comentarios en espanol.
 ```
+
 
 ---
 
@@ -242,8 +245,9 @@ End Sub
 ### Prompt para generarla
 
 ```
-Genera una macro VBA llamada ActualizarPivots. Debe recorrer todas las hojas del libro activo, y para cada hoja recorrer todas sus tablas dinamicas y ejecutar RefreshTable. Contar cuantas tablas se actualizaron y mostrarlo en un MsgBox. Comentarios en espaniol.
+Genera una macro VBA llamada ActualizarPivots. Debe recorrer todas las hojas del libro activo, y para cada hoja recorrer todas sus tablas dinamicas y ejecutar RefreshTable. Contar cuantas tablas se actualizaron y mostrarlo en un MsgBox. Comentarios en espanol.
 ```
+
 
 ---
 
@@ -292,8 +296,9 @@ End Sub
 ### Prompt para generarla
 
 ```
-Genera una macro VBA llamada ExportarPDF. Debe exportar la hoja activa como PDF usando ExportAsFixedFormat. El nombre del archivo debe ser [NombreHoja]_[Fecha].pdf y guardarse en la misma carpeta del libro. Verificar que el libro este guardado antes de exportar. Abrir el PDF despues de crearlo. MsgBox con la ruta. Comentarios en espaniol.
+Genera una macro VBA llamada ExportarPDF. Debe exportar la hoja activa como PDF usando ExportAsFixedFormat. El nombre del archivo debe ser [NombreHoja]_[Fecha].pdf y guardarse en la misma carpeta del libro. Verificar que el libro este guardado antes de exportar. Abrir el PDF despues de crearlo. MsgBox con la ruta. Comentarios en espanol.
 ```
+
 
 ---
 

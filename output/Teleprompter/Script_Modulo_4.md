@@ -1,4 +1,4 @@
-# Módulo 4: El Dashboard Inteligente y Entrega Profesional
+# Modulo 4: El Dashboard Inteligente y Entrega Profesional
 
 ## Slide 1 — Portada
 

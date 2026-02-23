@@ -83,7 +83,7 @@ def build():
         ("Ctrl + Y", "Rehacer / Repetir ultima accion", "Tambien funciona como repetir"),
         ("Ctrl + D", "Copiar celda de arriba hacia abajo", "Rellena con contenido de arriba"),
         ("Ctrl + R", "Copiar celda de izquierda a derecha", "Rellena con contenido de la izq."),
-        ("Ctrl + J", "Salto de linea dentro de celda", "Alt+Enter en modo edicion tambien"),
+        ("Ctrl + J", "Buscar salto de linea (en Buscar y Reemplazar)", "En el cuadro Ctrl+H, busca saltos de linea"),
         ("Delete", "Borrar contenido de celda(s)", "Solo contenido, no formato"),
         ("Ctrl + - (menos)", "Eliminar celda/fila/columna", "Muestra opciones de eliminacion"),
         ("Ctrl + + (mas)", "Insertar celda/fila/columna", "Muestra opciones de insercion"),
@@ -172,7 +172,7 @@ def build():
         ("Ctrl + P", "Imprimir / Vista previa", "Acceso rapido a impresion"),
         ("Ctrl + W", "Cerrar libro actual", "No cierra Excel, solo el libro"),
         ("F12", "Guardar como", "Dialogo completo de guardar"),
-        ("Ctrl + N (o Ctrl + U)", "Nuevo libro en blanco", "Crear libro nuevo rapidamente"),
+        ("Ctrl + U", "Nuevo libro en blanco", "Ctrl+N en Excel en ingles"),
     ])
 
     # ── Nota final ────────────────────────────────────────────────
@@ -180,7 +180,7 @@ def build():
     pdf.add_text(
         "**Nota:** Algunos atajos pueden variar segun la version de Excel "
         "(2019, 2021, 365) y la configuracion de idioma. Los atajos mostrados "
-        "corresponden a la version en espaniol de Windows. En Mac, sustituir "
+        "corresponden a la version en espanol de Windows. En Mac, sustituir "
         "Ctrl por Cmd en la mayoria de los casos."
     )
     pdf.add_spacer(0.1)

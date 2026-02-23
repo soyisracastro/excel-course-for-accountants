@@ -1,6 +1,6 @@
 # Guia de Referencia
 
-**Modulo 2: Procesamiento Masivo y Análisis con Tablas Dinámicas**
+**Modulo 2: Procesamiento Masivo y Analisis con Tablas Dinamicas**
 
 *Tablas, Limpieza de Datos y Tablas Dinamicas*
 
@@ -27,6 +27,7 @@ Comprender la diferencia entre un rango de celdas y una Tabla de Excel es fundam
 
 
 **Regla de oro:** Si tus datos tienen encabezados y mas de una fila, conviertelos en Tabla con Ctrl+T. No hay razon para no hacerlo.
+
 
 ---
 
@@ -176,6 +177,7 @@ Por defecto, Excel usa SUMA para numeros y CUENTA para texto. Puedes cambiar el 
 - Verificar: si ISR causado < retenciones = saldo a favor (devolucion)
 
 **Tiempo estimado:** 10-15 minutos. **Valor:** Este es el flujo real de trabajo en un despacho contable.
+
 
 ---
 
