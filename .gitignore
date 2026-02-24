@@ -14,6 +14,7 @@ env/
 output/**/*.xlsx
 output/**/*.pdf
 output/**/*.pptx
+output/**/*.png
 
 # Archivos obsoletos (reemplazados por CLAUDE.md y README.md)
 context.md
