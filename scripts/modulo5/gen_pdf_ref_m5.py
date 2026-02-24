@@ -1,5 +1,5 @@
 """
-Generador: Referencia_Modulo_5.pdf (~5 paginas)
+Generador: Referencia_Modulo_5.md (~5 paginas)
 Modulo 5 -- Automatizacion Nativa con Microsoft 365 Copilot
 
 Contenido:
@@ -25,18 +25,18 @@ def build():
     pdf = MarkdownGenerator(
         "Referencia_Modulo_5.md",
         OUTPUT_DIR,
-        title="Referencia Rapida - Modulo 5: Copilot e IA",
+        title="Referencia Rápida - Módulo 5: Copilot e IA",
     )
 
     # -- Portada ---------------------------------------------------------------
     pdf.add_cover(
-        title="Referencia Rapida - Modulo 5",
+        title="Referencia Rápida - Módulo 5",
         subtitle="Copilot, IA externa y resumen del curso completo",
-        modulo="Modulo 5 - Automatizacion Nativa con Microsoft 365 Copilot",
+        modulo="Módulo 5 - Automatización Nativa con Microsoft 365 Copilot",
     )
 
     # =========================================================================
-    # SECCION 1: Copilot Checklist
+    # SECCIÓN 1: Copilot Checklist
     # =========================================================================
     pdf.add_section("1. Checklist para usar Copilot en Excel")
     pdf.add_text(
@@ -50,10 +50,10 @@ def build():
         ("Archivo en la nube", "Guardado en OneDrive o SharePoint. No funciona con archivos locales."),
         ("Formato Tabla", "Datos convertidos a Tabla (Ctrl+T) con nombre descriptivo (ej. Ventas_Gasolinera)."),
         ("Sin celdas combinadas", "Eliminar celdas combinadas que interfieran con la estructura de la tabla."),
-        ("Sin filas en blanco", "Remover filas vacias dentro del rango de datos."),
+        ("Sin filas en blanco", "Remover filas vacías dentro del rango de datos."),
         ("Encabezados claros", "Nombres de columna descriptivos, sin espacios al inicio/final."),
-        ("Conexion a internet", "Copilot procesa en la nube; necesitas conexion estable."),
-        ("Panel de Copilot visible", "Clic en icono de Copilot en pestana Inicio. Si esta gris, revisa requisitos."),
+        ("Conexión a internet", "Copilot procesa en la nube; necesitas conexión estable."),
+        ("Panel de Copilot visible", "Clic en ícono de Copilot en pestaña Inicio. Si está gris, revisa requisitos."),
     ]
 
     table_data = [["#", "Requisito", "Detalle"]]
@@ -64,34 +64,34 @@ def build():
     pdf.add_spacer(0.2)
 
     # =========================================================================
-    # SECCION 2: Top 15 Prompts Quick Reference
+    # SECCIÓN 2: Top 15 Prompts Quick Reference
     # =========================================================================
-    pdf.add_section("2. Top 15 Prompts - Referencia Rapida")
+    pdf.add_section("2. Top 15 Prompts - Referencia Rápida")
     pdf.add_text(
-        "Los 15 prompts mas utiles para contadores, organizados por categoria. "
+        "Los 15 prompts más útiles para contadores, organizados por categoría. "
         "Copia y pega directamente en el panel de Copilot."
     )
     pdf.add_spacer(0.1)
 
     prompts_ref = [
-        ("Analisis", "Analiza las ventas por sucursal y dime cual tiene mejor desempeno."),
-        ("Analisis", "Cual vendedor tiene el mejor desempeno? Muestra ranking de los 5 mejores."),
-        ("Analisis", "Cual es la tendencia de ventas mes a mes durante 2025?"),
-        ("Anomalias", "Identifica anomalias en la tabla de nomina."),
-        ("Anomalias", "Hay datos faltantes? Que empleados tienen meses sin registro?"),
-        ("Anomalias", "Detecta empleados con horas extra inusualmente altas."),
-        ("Calculos", "Crea columna que calcule el ISR marginal por TotalPercepcion."),
-        ("Calculos", "Calcula comision del 2% sobre Venta_Total como nueva columna."),
-        ("Calculos", "Clasifica cada venta como Alta (>$5,000), Media ($1,000-$5,000) o Baja (<$1,000)."),
-        ("Graficos", "Crea grafico de barras de ventas totales por mes."),
-        ("Graficos", "Muestra distribucion por tipo de combustible con grafico de pastel."),
-        ("Graficos", "Genera grafico comparativo de ventas por turno para cada sucursal."),
+        ("Análisis", "Analiza las ventas por sucursal y dime cuál tiene mejor desempeño."),
+        ("Análisis", "¿Cuál vendedor tiene el mejor desempeño? Muestra ranking de los 5 mejores."),
+        ("Análisis", "¿Cuál es la tendencia de ventas mes a mes durante 2025?"),
+        ("Anomalías", "Identifica anomalías en la tabla de nómina."),
+        ("Anomalías", "¿Hay datos faltantes? ¿Qué empleados tienen meses sin registro?"),
+        ("Anomalías", "Detecta empleados con horas extra inusualmente altas."),
+        ("Cálculos", "Crea columna que calcule el ISR marginal por TotalPercepcion."),
+        ("Cálculos", "Calcula comisión del 2% sobre Venta_Total como nueva columna."),
+        ("Cálculos", "Clasifica cada venta como Alta (>$5,000), Media ($1,000-$5,000) o Baja (<$1,000)."),
+        ("Gráficos", "Crea gráfico de barras de ventas totales por mes."),
+        ("Gráficos", "Muestra distribución por tipo de combustible con gráfico de pastel."),
+        ("Gráficos", "Genera gráfico comparativo de ventas por turno para cada sucursal."),
         ("Resumen", "Genera resumen ejecutivo: totales, promedios, mejor sucursal, mejor vendedor."),
         ("Resumen", "Crea tabla de frecuencia por rango de litros (0-50, 50-100, 100-200, 200-500)."),
         ("Resumen", "Resume deducciones totales por tipo (ISR, IMSS, Otras) con porcentajes."),
     ]
 
-    prompt_table = [["#", "Categoria", "Prompt"]]
+    prompt_table = [["#", "Categoría", "Prompt"]]
     for i, (cat, prompt) in enumerate(prompts_ref, 1):
         prompt_table.append([str(i), cat, prompt])
 
@@ -100,114 +100,114 @@ def build():
     pdf.add_page_break()
 
     # =========================================================================
-    # SECCION 3: Referencia de IA Externa
+    # SECCIÓN 3: Referencia de IA Externa
     # =========================================================================
     pdf.add_section("3. Referencia de IA Externa")
     pdf.add_text(
-        "Ademas de Microsoft Copilot, estas herramientas de IA pueden potenciar tu trabajo contable:"
+        "Además de Microsoft Copilot, estas herramientas de IA pueden potenciar tu trabajo contable:"
     )
     pdf.add_spacer(0.15)
 
     pdf.add_subsection("ChatGPT (OpenAI)")
     pdf.add_bullet("URL: chat.openai.com")
-    pdf.add_bullet("Fortaleza: Generacion de macros VBA, consultas Power Query M, explicacion de formulas.")
-    pdf.add_bullet("Uso tipico: 'Genera macro VBA que exporte cada hoja como PDF individual.'")
+    pdf.add_bullet("Fortaleza: Generación de macros VBA, consultas Power Query M, explicación de fórmulas.")
+    pdf.add_bullet("Uso típico: 'Genera macro VBA que exporte cada hoja como PDF individual.'")
     pdf.add_bullet("Costo: Gratuito (GPT-3.5) o $20 USD/mes (GPT-4, Plus).")
     pdf.add_spacer(0.1)
 
     pdf.add_subsection("Google Gemini")
     pdf.add_bullet("URL: gemini.google.com | Integrado en Google Sheets")
-    pdf.add_bullet("Fortaleza: Analisis de datos en Google Sheets, busqueda contextual.")
-    pdf.add_bullet("Uso tipico: Asistente en Google Sheets para formulas y analisis rapido.")
+    pdf.add_bullet("Fortaleza: Análisis de datos en Google Sheets, búsqueda contextual.")
+    pdf.add_bullet("Uso típico: Asistente en Google Sheets para fórmulas y análisis rápido.")
     pdf.add_bullet("Costo: Gratuito con cuenta Google; Gemini Advanced $20 USD/mes.")
     pdf.add_spacer(0.1)
 
     pdf.add_subsection("Claude (Anthropic)")
     pdf.add_bullet("URL: claude.ai")
-    pdf.add_bullet("Fortaleza: Analisis de documentos extensos, precision en razonamiento, codigo limpio.")
-    pdf.add_bullet("Uso tipico: 'Analiza este estado financiero y detecta inconsistencias.'")
+    pdf.add_bullet("Fortaleza: Análisis de documentos extensos, precisión en razonamiento, código limpio.")
+    pdf.add_bullet("Uso típico: 'Analiza este estado financiero y detecta inconsistencias.'")
     pdf.add_bullet("Costo: Gratuito (limitado) o $20 USD/mes (Pro).")
     pdf.add_spacer(0.15)
 
-    pdf.add_subsection("Comparativa rapida")
+    pdf.add_subsection("Comparativa rápida")
     comp_table = [
-        ["Herramienta", "Mejor para", "Integracion Excel", "Costo base"],
-        ["MS Copilot", "Analisis dentro de Excel", "Nativa (panel lateral)", "$30 USD/mes"],
-        ["ChatGPT", "Macros VBA, Power Query", "Copiar/pegar codigo", "Gratis / $20"],
-        ["Gemini", "Google Sheets, busqueda", "Google Sheets nativo", "Gratis / $20"],
-        ["Claude", "Documentos, razonamiento", "Copiar/pegar analisis", "Gratis / $20"],
+        ["Herramienta", "Mejor para", "Integración Excel", "Costo base"],
+        ["MS Copilot", "Análisis dentro de Excel", "Nativa (panel lateral)", "$30 USD/mes"],
+        ["ChatGPT", "Macros VBA, Power Query", "Copiar/pegar código", "Gratis / $20"],
+        ["Gemini", "Google Sheets, búsqueda", "Google Sheets nativo", "Gratis / $20"],
+        ["Claude", "Documentos, razonamiento", "Copiar/pegar análisis", "Gratis / $20"],
     ]
     pdf.add_table(comp_table, col_widths=[1.2 * inch, 1.8 * inch, 2.0 * inch, 1.3 * inch])
 
     pdf.add_page_break()
 
     # =========================================================================
-    # SECCION 4: Resumen del Curso M1-M5
+    # SECCIÓN 4: Resumen del Curso M1-M5
     # =========================================================================
     pdf.add_section("4. Resumen del Curso Completo: M1 a M5")
     pdf.add_text(
-        "A lo largo de 5 modulos, este curso te llevo del dato crudo al insight accionable "
+        "A lo largo de 5 módulos, este curso te llevó del dato crudo al insight accionable "
         "con herramientas modernas de Excel."
     )
     pdf.add_spacer(0.15)
 
     for mod_num in sorted(MODULOS.keys()):
         mod = MODULOS[mod_num]
-        pdf.add_subsection("Modulo {}: {}".format(mod_num, mod["nombre"]))
+        pdf.add_subsection("Módulo {}: {}".format(mod_num, mod["nombre"]))
 
     # Module 1 details
     pdf.add_spacer(0.05)
-    pdf.add_text("<b>Modulo 1 - Logica Contable y Funciones de Control</b>")
+    pdf.add_text("<b>Módulo 1 — Lógica Contable y Funciones de Control</b>")
     pdf.add_bullet("Funciones clave: BUSCARV, SI, SI.CONJUNTO, TRUNCAR")
-    pdf.add_bullet("Calculo de ISR con tarifa Art. 96 y Art. 152 LISR 2026")
-    pdf.add_bullet("Factor de Actualizacion Art. 17-A CFF con TRUNCAR a 4 decimales")
-    pdf.add_bullet("Extraccion y validacion de RFC con funciones de texto")
+    pdf.add_bullet("Cálculo de ISR con tarifa Art. 96 y Art. 152 LISR 2026")
+    pdf.add_bullet("Factor de Actualización Art. 17-A CFF con TRUNCAR a 4 decimales")
+    pdf.add_bullet("Extracción y validación de RFC con funciones de texto")
     pdf.add_spacer(0.1)
 
-    pdf.add_text("<b>Modulo 2 - Procesamiento Masivo y Tablas Dinamicas</b>")
-    pdf.add_bullet("Limpieza y preparacion de datos masivos")
-    pdf.add_bullet("Tablas dinamicas: agrupacion, filtros, campos calculados")
-    pdf.add_bullet("Analisis de datos reales de ventas y nomina")
-    pdf.add_bullet("Segmentadores y lineas de tiempo para filtrado interactivo")
+    pdf.add_text("<b>Módulo 2 — Procesamiento Masivo y Tablas Dinámicas</b>")
+    pdf.add_bullet("Limpieza y preparación de datos masivos")
+    pdf.add_bullet("Tablas dinámicas: agrupación, filtros, campos calculados")
+    pdf.add_bullet("Análisis de datos reales de ventas y nómina")
+    pdf.add_bullet("Segmentadores y líneas de tiempo para filtrado interactivo")
     pdf.add_spacer(0.1)
 
-    pdf.add_text("<b>Modulo 3 - Visualizacion Profesional</b>")
-    pdf.add_bullet("Graficos de impacto: barras, lineas, combinados, cascada")
-    pdf.add_bullet("Principios de diseno para reportes ejecutivos")
-    pdf.add_bullet("Formateo condicional avanzado con barras, semaforos, iconos")
-    pdf.add_bullet("Minigraficos (Sparklines) para tendencias en celdas")
+    pdf.add_text("<b>Módulo 3 — Visualización Profesional</b>")
+    pdf.add_bullet("Gráficos de impacto: barras, líneas, combinados, cascada")
+    pdf.add_bullet("Principios de diseño para reportes ejecutivos")
+    pdf.add_bullet("Formateo condicional avanzado con barras, semáforos, íconos")
+    pdf.add_bullet("Minigráficos (Sparklines) para tendencias en celdas")
     pdf.add_spacer(0.1)
 
-    pdf.add_text("<b>Modulo 4 - El Dashboard Inteligente</b>")
-    pdf.add_bullet("KPIs con formato profesional y semaforos de alerta")
+    pdf.add_text("<b>Módulo 4 — El Dashboard Inteligente</b>")
+    pdf.add_bullet("KPIs con formato profesional y semáforos de alerta")
     pdf.add_bullet("Controles interactivos: segmentadores, casillas, listas")
-    pdf.add_bullet("Diseno de dashboard ejecutivo en una sola hoja")
-    pdf.add_bullet("Exportacion y entrega profesional (PDF, proteccion)")
+    pdf.add_bullet("Diseño de dashboard ejecutivo en una sola hoja")
+    pdf.add_bullet("Exportación y entrega profesional (PDF, protección)")
     pdf.add_spacer(0.1)
 
-    pdf.add_text("<b>Modulo 5 - Copilot e Inteligencia Artificial</b>")
-    pdf.add_bullet("Microsoft 365 Copilot: requisitos, activacion, panel lateral")
-    pdf.add_bullet("Analisis con lenguaje natural, generacion de formulas, graficos")
-    pdf.add_bullet("Deteccion de anomalias y columnas inteligentes")
+    pdf.add_text("<b>Módulo 5 — Copilot e Inteligencia Artificial</b>")
+    pdf.add_bullet("Microsoft 365 Copilot: requisitos, activación, panel lateral")
+    pdf.add_bullet("Análisis con lenguaje natural, generación de fórmulas, gráficos")
+    pdf.add_bullet("Detección de anomalías y columnas inteligentes")
     pdf.add_bullet("IA externa: ChatGPT, Gemini, Claude como complemento")
     pdf.add_spacer(0.2)
 
     # =========================================================================
-    # SECCION 5: Consejos finales
+    # SECCIÓN 5: Consejos finales
     # =========================================================================
     pdf.add_section("5. Consejos finales")
     pdf.add_bullet("Practica diariamente con los archivos del Pack Excel Pro.")
-    pdf.add_bullet("Automatiza primero las tareas que haces todos los meses (nomina, conciliaciones, reportes).")
-    pdf.add_bullet("Usa Copilot para explorar datos rapidamente, pero siempre valida con tu criterio.")
+    pdf.add_bullet("Automatiza primero las tareas que haces todos los meses (nómina, conciliaciones, reportes).")
+    pdf.add_bullet("Usa Copilot para explorar datos rápidamente, pero siempre valida con tu criterio.")
     pdf.add_bullet("Comparte lo aprendido con tu equipo: la productividad se multiplica.")
     pdf.add_bullet("Mantente actualizado: Excel y Copilot se actualizan constantemente.")
     pdf.add_bullet("Siguiente nivel: Power Query, Power BI, Power Automate, VBA.")
     pdf.add_spacer(0.2)
 
     pdf.add_text(
-        "<b>Recuerda:</b> La tecnologia es la herramienta, pero el profesional eres tu. "
-        "Tu criterio contable, tu experiencia y tu etica profesional son insustituibles. "
-        "La IA te hace mas eficiente, pero no te reemplaza."
+        "<b>Recuerda:</b> La tecnología es la herramienta, pero el profesional eres tú. "
+        "Tu criterio contable, tu experiencia y tu ética profesional son insustituibles. "
+        "La IA te hace más eficiente, pero no te reemplaza."
     )
 
     pdf.save()

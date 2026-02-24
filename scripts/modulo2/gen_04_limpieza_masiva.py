@@ -168,7 +168,7 @@ def _gen_dirty_row(idx, rng):
         dirty_total = -total
         dirty_obs = "Montos negativos"
 
-    # 5% prob: fila completamente vacia excepto folio
+    # 5% prob: factura cancelada — fila irrecuperable, se debe eliminar
     elif problem < 0.89:
         dirty_prov = None
         dirty_rfc = None
@@ -177,7 +177,8 @@ def _gen_dirty_row(idx, rng):
         dirty_subtotal = None
         dirty_iva = None
         dirty_total = None
-        dirty_obs = "Fila casi vacia"
+        dirty_obs = "Factura cancelada - sin datos"
+        clean_row = None  # No debe aparecer en Datos_Limpios
 
     # El resto: datos correctos (sin errores)
     # ~11% quedan limpios
@@ -205,7 +206,8 @@ def build():
     for i in range(1, 221):
         dirty, clean = _gen_dirty_row(i, rng)
         dirty_rows.append(dirty)
-        clean_rows.append(clean)
+        if clean is not None:
+            clean_rows.append(clean)
 
     # ── Hoja 1: Datos Sucios ────────────────────────────────────
     ws1 = gen.add_sheet("Datos_Sucios")
@@ -261,7 +263,7 @@ def build():
         "PASO 2: Usa ESPACIOS (TRIM) para eliminar espacios extra en RFC y nombres.",
         "PASO 3: Verifica que Subtotal + IVA = Total usando una columna auxiliar.",
         "PASO 4: Estandariza las fechas al formato DD/MM/AAAA con DATEVALUE o pegado especial.",
-        "PASO 5: Filtra las filas vacias o con datos faltantes y decide si completar o eliminar.",
+        "PASO 5: Elimina las filas de facturas canceladas (solo tienen folio, sin datos recuperables).",
         "PASO 6: Quita duplicados con la funcion Datos > Quitar duplicados.",
         "PASO 7: Cuando los datos esten limpios, convierte el rango a Tabla (Ctrl+T).",
         "La hoja 'Datos_Limpios' es tu referencia: compara tu resultado contra ella.",

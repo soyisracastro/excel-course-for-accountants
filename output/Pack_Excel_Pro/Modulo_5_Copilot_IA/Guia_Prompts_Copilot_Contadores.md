@@ -1,6 +1,6 @@
-# Guia de Prompts para Copilot
+# Guía de Prompts para Copilot
 
-**Modulo 5 - Automatizacion Nativa con Microsoft 365 Copilot**
+**Módulo 5 — Automatización Nativa con Microsoft 365 Copilot**
 
 *20 prompts listos para usar con datos contables en Excel*
 
@@ -8,9 +8,9 @@ Israel Castro | Excel para Contadores y Administrativos | 2026
 
 ---
 
-## Como usar esta guia
+## Cómo usar esta guía
 
-Esta guia contiene 20 prompts disenados especificamente para contadores y administrativos que usan Microsoft 365 Copilot en Excel. Cada prompt esta pensado para trabajar con el archivo **12_Dataset_Master_Copilot.xlsx** incluido en este modulo.
+Esta guía contiene 20 prompts diseñados específicamente para contadores y administrativos que usan Microsoft 365 Copilot en Excel. Cada prompt está pensado para trabajar con el archivo **12_Dataset_Master_Copilot.xlsx** incluido en este módulo.
 
 
 **Requisitos previos:**
@@ -21,16 +21,16 @@ Esta guia contiene 20 prompts disenados especificamente para contadores y admini
 
 **Estructura de cada prompt:**
 
-- **Prompt exacto:** Lo que escribiras en el panel de Copilot.
-- **Que esperar:** La respuesta esperada de la IA.
-- **Como validar:** Como verificar que la respuesta sea correcta con funciones de Excel.
+- **Prompt exacto:** Lo que escribirás en el panel de Copilot.
+- **Qué esperar:** La respuesta esperada de la IA.
+- **Cómo validar:** Cómo verificar que la respuesta sea correcta con funciones de Excel.
 
 **Recuerda:** Copilot es una herramienta de apoyo, no un sustituto de tu criterio profesional. Siempre valida los resultados.
 
 
 ---
 
-## 1. Analisis de Datos
+## 1. Análisis de Datos
 
 
 ### Prompt 1
@@ -39,18 +39,18 @@ Esta guia contiene 20 prompts disenados especificamente para contadores y admini
 **Prompt exacto:**
 
 ```
-"Analiza las ventas por sucursal y dime cual tiene mejor desempeno en los ultimos 3 meses."
+"Analiza las ventas por sucursal y dime cuál tiene mejor desempeño en los últimos 3 meses."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Copilot generara una tabla resumen con totales por sucursal (Centro, Norte, Sur) filtrando Oct-Dic 2025, indicando cual tiene mayor volumen de ventas.
+Copilot generará una tabla resumen con totales por sucursal (Centro, Norte, Sur) filtrando Oct-Dic 2025, indicando cuál tiene mayor volumen de ventas.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Crea una tabla dinamica manual con filtro de fecha Oct-Dic y agrupa por Sucursal. Compara los totales con la respuesta de Copilot.
+Crea una tabla dinámica manual con filtro de fecha Oct-Dic y agrupa por Sucursal. Compara los totales con la respuesta de Copilot.
 
 
 ### Prompt 2
@@ -59,18 +59,18 @@ Crea una tabla dinamica manual con filtro de fecha Oct-Dic y agrupa por Sucursal
 **Prompt exacto:**
 
 ```
-"Cual vendedor tiene el mejor desempeno en ventas totales? Muestra un ranking de los 5 mejores."
+"¿Cuál vendedor tiene el mejor desempeño en ventas totales? Muestra un ranking de los 5 mejores."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Un ranking ordenado de vendedores por Venta_Total acumulada. Vendedor_3 deberia aparecer en los ultimos lugares.
+Un ranking ordenado de vendedores por Venta_Total acumulada. Vendedor_3 debería aparecer en los últimos lugares.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Usa SUMAR.SI para acumular Venta_Total por vendedor y ordena de mayor a menor. Verifica que Vendedor_3 este abajo.
+Usa SUMAR.SI para acumular Venta_Total por vendedor y ordena de mayor a menor. Verifica que Vendedor_3 esté abajo.
 
 
 ### Prompt 3
@@ -83,14 +83,14 @@ Usa SUMAR.SI para acumular Venta_Total por vendedor y ordena de mayor a menor. V
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Una tabla cruzada Sucursal vs TipoCombustible mostrando suma de litros. Norte deberia mostrar mayor proporcion de Premium.
+Una tabla cruzada Sucursal vs TipoCombustible mostrando suma de litros. Norte debería mostrar mayor proporción de Premium.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Crea tabla dinamica con Sucursal en filas, TipoCombustible en columnas y Suma de Litros en valores.
+Crea tabla dinámica con Sucursal en filas, TipoCombustible en columnas y Suma de Litros en valores.
 
 
 ### Prompt 4
@@ -99,18 +99,18 @@ Crea tabla dinamica con Sucursal en filas, TipoCombustible en columnas y Suma de
 **Prompt exacto:**
 
 ```
-"Cual es la tendencia de ventas mes a mes durante 2025? Hay alguna estacionalidad?"
+"¿Cuál es la tendencia de ventas mes a mes durante 2025? ¿Hay alguna estacionalidad?"
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Un analisis temporal con ventas mensuales mostrando si hay meses altos o bajos. Copilot puede identificar tendencias.
+Un análisis temporal con ventas mensuales mostrando si hay meses altos o bajos. Copilot puede identificar tendencias.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Agrupa las fechas por mes con una tabla dinamica y grafica la serie temporal. Observa si coincide con el analisis de Copilot.
+Agrupa las fechas por mes con una tabla dinámica y grafica la serie temporal. Observa si coincide con el análisis de Copilot.
 
 
 ### Prompt 5
@@ -119,23 +119,23 @@ Agrupa las fechas por mes con una tabla dinamica y grafica la serie temporal. Ob
 **Prompt exacto:**
 
 ```
-"Que porcentaje de las ventas se pagan con cada metodo de pago? Desglosalo por sucursal."
+"¿Qué porcentaje de las ventas se pagan con cada método de pago? Desglósalo por sucursal."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Porcentajes de Efectivo, Tarjeta y Transferencia por sucursal en formato tabla o grafico.
+Porcentajes de Efectivo, Tarjeta y Transferencia por sucursal en formato tabla o gráfico.
 
 
-**Como validar:**
+**Cómo validar:**
 
 Usa CONTAR.SI.CONJUNTO para contar transacciones por MetodoPago y Sucursal. Calcula los porcentajes manualmente.
 
 
 ---
 
-## 2. Deteccion de Errores y Anomalias
+## 2. Detección de Errores y Anomalías
 
 
 ### Prompt 6
@@ -144,18 +144,18 @@ Usa CONTAR.SI.CONJUNTO para contar transacciones por MetodoPago y Sucursal. Calc
 **Prompt exacto:**
 
 ```
-"Identifica anomalias en la tabla de nomina. Hay empleados con cambios inusuales de sueldo?"
+"Identifica anomalías en la tabla de nómina. ¿Hay empleados con cambios inusuales de sueldo?"
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Copilot deberia detectar los 2 empleados con incrementos subitos de sueldo (empleado 3 en julio, empleado 11 en octubre).
+Copilot debería detectar los 2 empleados con incrementos súbitos de sueldo (empleado 3 en julio, empleado 11 en octubre).
 
 
-**Como validar:**
+**Cómo validar:**
 
-Filtra por cada empleado y grafica su SueldoBase por periodo. Los saltos seran visibles como picos en la linea.
+Filtra por cada empleado y grafica su SueldoBase por periodo. Los saltos serán visibles como picos en la línea.
 
 
 ### Prompt 7
@@ -164,16 +164,16 @@ Filtra por cada empleado y grafica su SueldoBase por periodo. Los saltos seran v
 **Prompt exacto:**
 
 ```
-"Hay datos faltantes en la nomina? Que empleados tienen meses sin registro?"
+"¿Hay datos faltantes en la nómina? ¿Qué empleados tienen meses sin registro?"
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Deberia identificar al empleado con 3 meses faltantes (abril, mayo, junio 2025).
+Debería identificar al empleado con 3 meses faltantes (abril, mayo, junio 2025).
 
 
-**Como validar:**
+**Cómo validar:**
 
 Usa CONTAR.SI para contar registros por empleado. El que tenga menos de 12 registros mensuales tiene meses faltantes.
 
@@ -184,18 +184,18 @@ Usa CONTAR.SI para contar registros por empleado. El que tenga menos de 12 regis
 **Prompt exacto:**
 
 ```
-"Detecta si hay empleados con horas extra inusualmente altas. En que periodos ocurre?"
+"Detecta si hay empleados con horas extra inusualmente altas. ¿En qué periodos ocurre?"
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Copilot deberia senalar que diciembre tiene picos de horas extra en todos los empleados.
+Copilot debería señalar que diciembre tiene picos de horas extra en todos los empleados.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Calcula el promedio de HorasExtra por periodo. Diciembre deberia tener un promedio significativamente mayor.
+Calcula el promedio de HorasExtra por periodo. Diciembre debería tener un promedio significativamente mayor.
 
 
 ### Prompt 9
@@ -204,23 +204,23 @@ Calcula el promedio de HorasExtra por periodo. Diciembre deberia tener un promed
 **Prompt exacto:**
 
 ```
-"Revisa si algun vendedor tiene un rendimiento consistentemente bajo comparado con el promedio."
+"Revisa si algún vendedor tiene un rendimiento consistentemente bajo comparado con el promedio."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Identificacion de Vendedor_3 como el de menor rendimiento sistematico (transacciones pequenas).
+Identificación de Vendedor_3 como el de menor rendimiento sistemático (transacciones pequeñas).
 
 
-**Como validar:**
+**Cómo validar:**
 
-Calcula promedio de Litros y Venta_Total por vendedor. Vendedor_3 tendra promedios notablemente menores.
+Calcula promedio de Litros y Venta_Total por vendedor. Vendedor_3 tendrá promedios notablemente menores.
 
 
 ---
 
-## 3. Calculos y Formulas
+## 3. Cálculos y Fórmulas
 
 
 ### Prompt 10
@@ -233,12 +233,12 @@ Calcula promedio de Litros y Venta_Total por vendedor. Vendedor_3 tendra promedi
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Copilot agregara una columna con formula que aplique la tarifa Art. 96 LISR, ubicando el rango y aplicando el porcentaje correspondiente.
+Copilot agregará una columna con fórmula que aplique la tarifa Art. 96 LISR, ubicando el rango y aplicando el porcentaje correspondiente.
 
 
-**Como validar:**
+**Cómo validar:**
 
 Compara los valores de la nueva columna con la columna ISR existente. Deben ser iguales o muy cercanos.
 
@@ -249,16 +249,16 @@ Compara los valores de la nueva columna con la columna ISR existente. Deben ser 
 **Prompt exacto:**
 
 ```
-"Calcula una comision del 2% sobre Venta_Total para cada vendedor y agregala como nueva columna."
+"Calcula una comisión del 2% sobre Venta_Total para cada vendedor y agrégala como nueva columna."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Una nueva columna 'Comision' con la formula =Venta_Total*0.02 aplicada a todas las filas.
+Una nueva columna 'Comisión' con la fórmula =Venta_Total*0.02 aplicada a todas las filas.
 
 
-**Como validar:**
+**Cómo validar:**
 
 Verifica manualmente: multiplica Venta_Total por 0.02 en algunas filas y compara.
 
@@ -273,14 +273,14 @@ Verifica manualmente: multiplica Venta_Total por 0.02 en algunas filas y compara
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Copilot creara una columna con funcion SI anidada o IFS que clasifique por rango de Venta_Total.
+Copilot creará una columna con función SI anidada o IFS que clasifique por rango de Venta_Total.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Filtra por cada categoria y verifica que los montos correspondan a los rangos definidos.
+Filtra por cada categoría y verifica que los montos correspondan a los rangos definidos.
 
 
 ### Prompt 13
@@ -293,19 +293,19 @@ Filtra por cada categoria y verifica que los montos correspondan a los rangos de
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
 Un resumen con el promedio de NetoPagar agrupado por Puesto, ordenado descendentemente.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Usa PROMEDIO.SI para calcular el promedio de NetoPagar por cada puesto unico.
+Usa PROMEDIO.SI para calcular el promedio de NetoPagar por cada puesto único.
 
 
 ---
 
-## 4. Graficos y Visualizacion
+## 4. Gráficos y Visualización
 
 
 ### Prompt 14
@@ -314,18 +314,18 @@ Usa PROMEDIO.SI para calcular el promedio de NetoPagar por cada puesto unico.
 **Prompt exacto:**
 
 ```
-"Crea un grafico de barras que muestre las ventas totales por mes durante 2025."
+"Crea un gráfico de barras que muestre las ventas totales por mes durante 2025."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Un grafico de barras verticales con 12 barras (Ene-Dic) mostrando la suma de Venta_Total por mes.
+Un gráfico de barras verticales con 12 barras (Ene-Dic) mostrando la suma de Venta_Total por mes.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Crea tu propio grafico con tabla dinamica de Fecha (agrupada por mes) vs Suma de Venta_Total.
+Crea tu propio gráfico con tabla dinámica de Fecha (agrupada por mes) vs Suma de Venta_Total.
 
 
 ### Prompt 15
@@ -334,18 +334,18 @@ Crea tu propio grafico con tabla dinamica de Fecha (agrupada por mes) vs Suma de
 **Prompt exacto:**
 
 ```
-"Muestra la distribucion de ventas por tipo de combustible con un grafico de pastel."
+"Muestra la distribución de ventas por tipo de combustible con un gráfico de pastel."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Un grafico circular con 3 segmentos (Magna, Premium, Diesel) mostrando proporcion de ventas.
+Un gráfico circular con 3 segmentos (Magna, Premium, Diesel) mostrando proporción de ventas.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Suma Venta_Total por TipoCombustible y crea un grafico circular manual para comparar.
+Suma Venta_Total por TipoCombustible y crea un gráfico circular manual para comparar.
 
 
 ### Prompt 16
@@ -354,18 +354,18 @@ Suma Venta_Total por TipoCombustible y crea un grafico circular manual para comp
 **Prompt exacto:**
 
 ```
-"Genera un grafico de lineas que muestre la evolucion del sueldo base de los 5 empleados con mayor sueldo."
+"Genera un gráfico de líneas que muestre la evolución del sueldo base de los 5 empleados con mayor sueldo."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Un grafico de lineas con 5 series temporales mostrando SueldoBase por periodo.
+Un gráfico de líneas con 5 series temporales mostrando SueldoBase por periodo.
 
 
-**Como validar:**
+**Cómo validar:**
 
-Identifica los 5 empleados con mayor SueldoBase y graficalos manualmente con tabla dinamica.
+Identifica los 5 empleados con mayor SueldoBase y grafícalos manualmente con tabla dinámica.
 
 
 ### Prompt 17
@@ -374,23 +374,23 @@ Identifica los 5 empleados con mayor SueldoBase y graficalos manualmente con tab
 **Prompt exacto:**
 
 ```
-"Crea un grafico comparativo de ventas por turno (Matutino, Vespertino, Nocturno) para cada sucursal."
+"Crea un gráfico comparativo de ventas por turno (Matutino, Vespertino, Nocturno) para cada sucursal."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Un grafico de barras agrupadas con 3 grupos (sucursales) y 3 barras cada uno (turnos).
+Un gráfico de barras agrupadas con 3 grupos (sucursales) y 3 barras cada uno (turnos).
 
 
-**Como validar:**
+**Cómo validar:**
 
-Tabla dinamica con Sucursal en filas, Turno en columnas y Suma de Venta_Total en valores.
+Tabla dinámica con Sucursal en filas, Turno en columnas y Suma de Venta_Total en valores.
 
 
 ---
 
-## 5. Automatizacion y Resumen
+## 5. Automatización y Resumen
 
 
 ### Prompt 18
@@ -403,12 +403,12 @@ Tabla dinamica con Sucursal en filas, Turno en columnas y Suma de Venta_Total en
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
-Un parrafo o tabla con KPIs principales: venta total, promedio por transaccion, sucursal lider, vendedor estrella.
+Un párrafo o tabla con KPIs principales: venta total, promedio por transacción, sucursal líder, vendedor estrella.
 
 
-**Como validar:**
+**Cómo validar:**
 
 Calcula cada KPI manualmente con funciones SUMA, PROMEDIO, MAX, y verifica que coincidan.
 
@@ -419,16 +419,16 @@ Calcula cada KPI manualmente con funciones SUMA, PROMEDIO, MAX, y verifica que c
 **Prompt exacto:**
 
 ```
-"Crea una tabla de frecuencia que muestre cuantas transacciones hay por rango de litros (0-50, 50-100, 100-200, 200-500)."
+"Crea una tabla de frecuencia que muestre cuántas transacciones hay por rango de litros (0-50, 50-100, 100-200, 200-500)."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
 Una tabla con 4 filas mostrando el conteo de transacciones en cada rango de litros.
 
 
-**Como validar:**
+**Cómo validar:**
 
 Usa CONTAR.SI.CONJUNTO con criterios de rango para contar transacciones en cada intervalo.
 
@@ -439,16 +439,16 @@ Usa CONTAR.SI.CONJUNTO con criterios de rango para contar transacciones en cada 
 **Prompt exacto:**
 
 ```
-"Resume las deducciones totales por tipo (ISR, IMSS, Otras) para toda la nomina y calcula el porcentaje que representa cada una."
+"Resume las deducciones totales por tipo (ISR, IMSS, Otras) para toda la nómina y calcula el porcentaje que representa cada una."
 ```
 
 
-**Que esperar:**
+**Qué esperar:**
 
 Una tabla resumen con 3 filas: ISR total, IMSS total, OtrasDeducciones total, y su porcentaje del total de deducciones.
 
 
-**Como validar:**
+**Cómo validar:**
 
 Suma cada columna de deducciones y calcula el porcentaje de cada una sobre TotalDeduccion.
 
@@ -457,18 +457,18 @@ Suma cada columna de deducciones y calcula el porcentaje de cada una sobre Total
 
 ## Consejos para mejores resultados con Copilot
 
-- Se especifico: en lugar de 'analiza los datos', di exactamente que columnas y que operacion.
+- Sé específico: en lugar de 'analiza los datos', di exactamente qué columnas y qué operación.
 - Menciona el nombre de la tabla: 'En la tabla Ventas_Gasolinera, calcula...'
-- Pide un paso a la vez: no combines multiples solicitudes en un solo prompt.
-- Si la respuesta no es correcta, reformula el prompt con mas detalle.
-- Usa Copilot para explorar, pero siempre valida con formulas tradicionales.
-- Guarda las formulas utiles que Copilot genere para reutilizarlas.
+- Pide un paso a la vez: no combines múltiples solicitudes en un solo prompt.
+- Si la respuesta no es correcta, reformula el prompt con más detalle.
+- Usa Copilot para explorar, pero siempre valida con fórmulas tradicionales.
+- Guarda las fórmulas útiles que Copilot genere para reutilizarlas.
 
 ## Limitaciones actuales de Copilot en Excel
 
 - No puede acceder a archivos locales; el archivo debe estar en la nube (OneDrive/SharePoint).
 - Solo trabaja con datos en formato Tabla (Ctrl+T).
-- Puede generar formulas incorrectas; siempre verifica los resultados.
+- Puede generar fórmulas incorrectas; siempre verifica los resultados.
 - No reemplaza el criterio contable profesional (NIF, LISR, CFF).
 - Disponibilidad limitada a ciertos planes de Microsoft 365.
 - Las respuestas pueden variar si repites el mismo prompt.

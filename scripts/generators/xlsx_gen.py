@@ -7,7 +7,8 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 from scripts.config.styles import (
     apply_header_style, apply_data_style, style_title_cell,
     style_instruction_cell, auto_width, FILL_LIGHT,
-    FONT_NORMAL, THIN_BORDER, ALIGN_CENTER
+    FONT_NORMAL, THIN_BORDER, ALIGN_CENTER,
+    FMT_MONEY, FMT_PCT, FMT_DATE
 )
 
 
@@ -38,25 +39,31 @@ class ExcelGenerator:
         # Headers
         for i, h in enumerate(headers):
             ws.cell(row=start_row, column=start_col + i, value=h)
-        apply_header_style(ws, start_row, start_col, col_end)
 
         # Data
         for r_idx, row_data in enumerate(data):
             row_num = start_row + 1 + r_idx
             for c_idx, val in enumerate(row_data):
                 ws.cell(row=row_num, column=start_col + c_idx, value=val)
-            apply_data_style(ws, row_num, start_col, col_end,
-                             money_cols=money_cols, pct_cols=pct_cols, date_cols=date_cols)
 
-        # Zebra striping
-        for r_idx in range(0, len(data), 2):
-            row_num = start_row + 1 + r_idx
-            for col in range(start_col, col_end + 1):
-                ws.cell(row=row_num, column=col).fill = FILL_LIGHT
-
-        # Named table
         if table_name:
+            # Named Table: the table style handles header formatting and
+            # zebra striping. Only apply number formats to data cells.
             from openpyxl.utils import get_column_letter
+            money_cols = money_cols or []
+            pct_cols = pct_cols or []
+            date_cols = date_cols or []
+            for r_idx in range(len(data)):
+                row_num = start_row + 1 + r_idx
+                for col in range(start_col, col_end + 1):
+                    cell = ws.cell(row=row_num, column=col)
+                    if col in money_cols:
+                        cell.number_format = FMT_MONEY
+                    elif col in pct_cols:
+                        cell.number_format = FMT_PCT
+                    elif col in date_cols:
+                        cell.number_format = FMT_DATE
+
             ref = (f"{get_column_letter(start_col)}{start_row}:"
                    f"{get_column_letter(col_end)}{start_row + len(data)}")
             tbl = Table(displayName=table_name, ref=ref)
@@ -65,6 +72,19 @@ class ExcelGenerator:
                 showLastColumn=False, showRowStripes=True, showColumnStripes=False
             )
             ws.add_table(tbl)
+        else:
+            # No named table: apply full manual styling
+            apply_header_style(ws, start_row, start_col, col_end)
+            for r_idx, row_data in enumerate(data):
+                row_num = start_row + 1 + r_idx
+                apply_data_style(ws, row_num, start_col, col_end,
+                                 money_cols=money_cols, pct_cols=pct_cols,
+                                 date_cols=date_cols)
+            # Zebra striping
+            for r_idx in range(0, len(data), 2):
+                row_num = start_row + 1 + r_idx
+                for col in range(start_col, col_end + 1):
+                    ws.cell(row=row_num, column=col).fill = FILL_LIGHT
 
         auto_width(ws)
         return start_row + len(data)  # last data row
@@ -78,7 +98,9 @@ class ExcelGenerator:
             row = i + 2
             ws.cell(row=row, column=1, value=i).font = FONT_NORMAL
             ws.cell(row=row, column=1).alignment = ALIGN_CENTER
-            cell = ws.cell(row=row, column=2, value=text)
+            # Prefix with space to prevent Excel interpreting as formula
+            safe_text = " " + text if text.startswith("=") else text
+            cell = ws.cell(row=row, column=2, value=safe_text)
             cell.font = FONT_NORMAL
             cell.alignment = ALIGN_CENTER.__class__(
                 horizontal="left", vertical="top", wrap_text=True

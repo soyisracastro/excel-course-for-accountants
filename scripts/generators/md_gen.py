@@ -88,15 +88,20 @@ class MarkdownGenerator:
             header_row = data[0]
             body_rows = data[1:]
 
+        def _cell(value):
+            """Sanitize a cell value for Markdown tables."""
+            # Replace newlines with <br> to keep content in one table row
+            return str(value).replace("\n", "<br>")
+
         # Build header
-        self.lines.append("| " + " | ".join(str(c) for c in header_row) + " |")
+        self.lines.append("| " + " | ".join(_cell(c) for c in header_row) + " |")
         self.lines.append("| " + " | ".join("---" for _ in header_row) + " |")
 
         # Build body
         for row in body_rows:
             # Pad row to match header length
             padded = list(row) + [""] * (len(header_row) - len(row))
-            self.lines.append("| " + " | ".join(str(c) for c in padded[:len(header_row)]) + " |")
+            self.lines.append("| " + " | ".join(_cell(c) for c in padded[:len(header_row)]) + " |")
 
         self.lines.append("")
 

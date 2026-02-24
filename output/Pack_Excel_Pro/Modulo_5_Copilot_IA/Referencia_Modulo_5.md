@@ -1,6 +1,6 @@
-# Referencia Rapida - Modulo 5
+# Referencia Rápida - Módulo 5
 
-**Modulo 5 - Automatizacion Nativa con Microsoft 365 Copilot**
+**Módulo 5 - Automatización Nativa con Microsoft 365 Copilot**
 
 *Copilot, IA externa y resumen del curso completo*
 
@@ -19,31 +19,31 @@ Antes de usar Microsoft 365 Copilot en Excel, verifica que cumples con todos los
 | 2 | Archivo en la nube | Guardado en OneDrive o SharePoint. No funciona con archivos locales. |
 | 3 | Formato Tabla | Datos convertidos a Tabla (Ctrl+T) con nombre descriptivo (ej. Ventas_Gasolinera). |
 | 4 | Sin celdas combinadas | Eliminar celdas combinadas que interfieran con la estructura de la tabla. |
-| 5 | Sin filas en blanco | Remover filas vacias dentro del rango de datos. |
+| 5 | Sin filas en blanco | Remover filas vacías dentro del rango de datos. |
 | 6 | Encabezados claros | Nombres de columna descriptivos, sin espacios al inicio/final. |
-| 7 | Conexion a internet | Copilot procesa en la nube; necesitas conexion estable. |
-| 8 | Panel de Copilot visible | Clic en icono de Copilot en pestana Inicio. Si esta gris, revisa requisitos. |
+| 7 | Conexión a internet | Copilot procesa en la nube; necesitas conexión estable. |
+| 8 | Panel de Copilot visible | Clic en ícono de Copilot en pestaña Inicio. Si está gris, revisa requisitos. |
 
 
-## 2. Top 15 Prompts - Referencia Rapida
+## 2. Top 15 Prompts - Referencia Rápida
 
-Los 15 prompts mas utiles para contadores, organizados por categoria. Copia y pega directamente en el panel de Copilot.
+Los 15 prompts más útiles para contadores, organizados por categoría. Copia y pega directamente en el panel de Copilot.
 
 
-| # | Categoria | Prompt |
+| # | Categoría | Prompt |
 | --- | --- | --- |
-| 1 | Analisis | Analiza las ventas por sucursal y dime cual tiene mejor desempeno. |
-| 2 | Analisis | Cual vendedor tiene el mejor desempeno? Muestra ranking de los 5 mejores. |
-| 3 | Analisis | Cual es la tendencia de ventas mes a mes durante 2025? |
-| 4 | Anomalias | Identifica anomalias en la tabla de nomina. |
-| 5 | Anomalias | Hay datos faltantes? Que empleados tienen meses sin registro? |
-| 6 | Anomalias | Detecta empleados con horas extra inusualmente altas. |
-| 7 | Calculos | Crea columna que calcule el ISR marginal por TotalPercepcion. |
-| 8 | Calculos | Calcula comision del 2% sobre Venta_Total como nueva columna. |
-| 9 | Calculos | Clasifica cada venta como Alta (>$5,000), Media ($1,000-$5,000) o Baja (<$1,000). |
-| 10 | Graficos | Crea grafico de barras de ventas totales por mes. |
-| 11 | Graficos | Muestra distribucion por tipo de combustible con grafico de pastel. |
-| 12 | Graficos | Genera grafico comparativo de ventas por turno para cada sucursal. |
+| 1 | Análisis | Analiza las ventas por sucursal y dime cuál tiene mejor desempeño. |
+| 2 | Análisis | ¿Cuál vendedor tiene el mejor desempeño? Muestra ranking de los 5 mejores. |
+| 3 | Análisis | ¿Cuál es la tendencia de ventas mes a mes durante 2025? |
+| 4 | Anomalías | Identifica anomalías en la tabla de nómina. |
+| 5 | Anomalías | ¿Hay datos faltantes? ¿Qué empleados tienen meses sin registro? |
+| 6 | Anomalías | Detecta empleados con horas extra inusualmente altas. |
+| 7 | Cálculos | Crea columna que calcule el ISR marginal por TotalPercepcion. |
+| 8 | Cálculos | Calcula comisión del 2% sobre Venta_Total como nueva columna. |
+| 9 | Cálculos | Clasifica cada venta como Alta (>$5,000), Media ($1,000-$5,000) o Baja (<$1,000). |
+| 10 | Gráficos | Crea gráfico de barras de ventas totales por mes. |
+| 11 | Gráficos | Muestra distribución por tipo de combustible con gráfico de pastel. |
+| 12 | Gráficos | Genera gráfico comparativo de ventas por turno para cada sucursal. |
 | 13 | Resumen | Genera resumen ejecutivo: totales, promedios, mejor sucursal, mejor vendedor. |
 | 14 | Resumen | Crea tabla de frecuencia por rango de litros (0-50, 50-100, 100-200, 200-500). |
 | 15 | Resumen | Resume deducciones totales por tipo (ISR, IMSS, Otras) con porcentajes. |
@@ -52,99 +52,99 @@ Los 15 prompts mas utiles para contadores, organizados por categoria. Copia y pe
 
 ## 3. Referencia de IA Externa
 
-Ademas de Microsoft Copilot, estas herramientas de IA pueden potenciar tu trabajo contable:
+Además de Microsoft Copilot, estas herramientas de IA pueden potenciar tu trabajo contable:
 
 
 ### ChatGPT (OpenAI)
 
 - URL: chat.openai.com
-- Fortaleza: Generacion de macros VBA, consultas Power Query M, explicacion de formulas.
-- Uso tipico: 'Genera macro VBA que exporte cada hoja como PDF individual.'
+- Fortaleza: Generación de macros VBA, consultas Power Query M, explicación de fórmulas.
+- Uso típico: 'Genera macro VBA que exporte cada hoja como PDF individual.'
 - Costo: Gratuito (GPT-3.5) o $20 USD/mes (GPT-4, Plus).
 
 ### Google Gemini
 
 - URL: gemini.google.com | Integrado en Google Sheets
-- Fortaleza: Analisis de datos en Google Sheets, busqueda contextual.
-- Uso tipico: Asistente en Google Sheets para formulas y analisis rapido.
+- Fortaleza: Análisis de datos en Google Sheets, búsqueda contextual.
+- Uso típico: Asistente en Google Sheets para fórmulas y análisis rápido.
 - Costo: Gratuito con cuenta Google; Gemini Advanced $20 USD/mes.
 
 ### Claude (Anthropic)
 
 - URL: claude.ai
-- Fortaleza: Analisis de documentos extensos, precision en razonamiento, codigo limpio.
-- Uso tipico: 'Analiza este estado financiero y detecta inconsistencias.'
+- Fortaleza: Análisis de documentos extensos, precisión en razonamiento, código limpio.
+- Uso típico: 'Analiza este estado financiero y detecta inconsistencias.'
 - Costo: Gratuito (limitado) o $20 USD/mes (Pro).
 
-### Comparativa rapida
+### Comparativa rápida
 
-| Herramienta | Mejor para | Integracion Excel | Costo base |
+| Herramienta | Mejor para | Integración Excel | Costo base |
 | --- | --- | --- | --- |
-| MS Copilot | Analisis dentro de Excel | Nativa (panel lateral) | $30 USD/mes |
-| ChatGPT | Macros VBA, Power Query | Copiar/pegar codigo | Gratis / $20 |
-| Gemini | Google Sheets, busqueda | Google Sheets nativo | Gratis / $20 |
-| Claude | Documentos, razonamiento | Copiar/pegar analisis | Gratis / $20 |
+| MS Copilot | Análisis dentro de Excel | Nativa (panel lateral) | $30 USD/mes |
+| ChatGPT | Macros VBA, Power Query | Copiar/pegar código | Gratis / $20 |
+| Gemini | Google Sheets, búsqueda | Google Sheets nativo | Gratis / $20 |
+| Claude | Documentos, razonamiento | Copiar/pegar análisis | Gratis / $20 |
 
 ---
 
 ## 4. Resumen del Curso Completo: M1 a M5
 
-A lo largo de 5 modulos, este curso te llevo del dato crudo al insight accionable con herramientas modernas de Excel.
+A lo largo de 5 módulos, este curso te llevó del dato crudo al insight accionable con herramientas modernas de Excel.
 
 
-### Modulo 1: Logica Contable y Funciones de Control
+### Módulo 1: Lógica Contable y Funciones de Control
 
-### Modulo 2: Procesamiento Masivo y Analisis con Tablas Dinamicas
+### Módulo 2: Procesamiento Masivo y Análisis con Tablas Dinámicas
 
-### Modulo 3: Visualizacion de Impacto y Reportes Ejecutivos
+### Módulo 3: Visualización de Impacto y Reportes Ejecutivos
 
-### Modulo 4: El Dashboard Inteligente y Entrega Profesional
+### Módulo 4: El Dashboard Inteligente y Entrega Profesional
 
-### Modulo 5: Automatizacion Nativa con Microsoft 365 Copilot
+### Módulo 5: Automatización Nativa con Microsoft 365 Copilot
 
 
-**Modulo 1 - Logica Contable y Funciones de Control**
+**Módulo 1 — Lógica Contable y Funciones de Control**
 
 - Funciones clave: BUSCARV, SI, SI.CONJUNTO, TRUNCAR
-- Calculo de ISR con tarifa Art. 96 y Art. 152 LISR 2026
-- Factor de Actualizacion Art. 17-A CFF con TRUNCAR a 4 decimales
-- Extraccion y validacion de RFC con funciones de texto
+- Cálculo de ISR con tarifa Art. 96 y Art. 152 LISR 2026
+- Factor de Actualización Art. 17-A CFF con TRUNCAR a 4 decimales
+- Extracción y validación de RFC con funciones de texto
 
-**Modulo 2 - Procesamiento Masivo y Tablas Dinamicas**
+**Módulo 2 — Procesamiento Masivo y Tablas Dinámicas**
 
-- Limpieza y preparacion de datos masivos
-- Tablas dinamicas: agrupacion, filtros, campos calculados
-- Analisis de datos reales de ventas y nomina
-- Segmentadores y lineas de tiempo para filtrado interactivo
+- Limpieza y preparación de datos masivos
+- Tablas dinámicas: agrupación, filtros, campos calculados
+- Análisis de datos reales de ventas y nómina
+- Segmentadores y líneas de tiempo para filtrado interactivo
 
-**Modulo 3 - Visualizacion Profesional**
+**Módulo 3 — Visualización Profesional**
 
-- Graficos de impacto: barras, lineas, combinados, cascada
-- Principios de diseno para reportes ejecutivos
-- Formateo condicional avanzado con barras, semaforos, iconos
-- Minigraficos (Sparklines) para tendencias en celdas
+- Gráficos de impacto: barras, líneas, combinados, cascada
+- Principios de diseño para reportes ejecutivos
+- Formateo condicional avanzado con barras, semáforos, íconos
+- Minigráficos (Sparklines) para tendencias en celdas
 
-**Modulo 4 - El Dashboard Inteligente**
+**Módulo 4 — El Dashboard Inteligente**
 
-- KPIs con formato profesional y semaforos de alerta
+- KPIs con formato profesional y semáforos de alerta
 - Controles interactivos: segmentadores, casillas, listas
-- Diseno de dashboard ejecutivo en una sola hoja
-- Exportacion y entrega profesional (PDF, proteccion)
+- Diseño de dashboard ejecutivo en una sola hoja
+- Exportación y entrega profesional (PDF, protección)
 
-**Modulo 5 - Copilot e Inteligencia Artificial**
+**Módulo 5 — Copilot e Inteligencia Artificial**
 
-- Microsoft 365 Copilot: requisitos, activacion, panel lateral
-- Analisis con lenguaje natural, generacion de formulas, graficos
-- Deteccion de anomalias y columnas inteligentes
+- Microsoft 365 Copilot: requisitos, activación, panel lateral
+- Análisis con lenguaje natural, generación de fórmulas, gráficos
+- Detección de anomalías y columnas inteligentes
 - IA externa: ChatGPT, Gemini, Claude como complemento
 
 ## 5. Consejos finales
 
 - Practica diariamente con los archivos del Pack Excel Pro.
-- Automatiza primero las tareas que haces todos los meses (nomina, conciliaciones, reportes).
-- Usa Copilot para explorar datos rapidamente, pero siempre valida con tu criterio.
+- Automatiza primero las tareas que haces todos los meses (nómina, conciliaciones, reportes).
+- Usa Copilot para explorar datos rápidamente, pero siempre valida con tu criterio.
 - Comparte lo aprendido con tu equipo: la productividad se multiplica.
 - Mantente actualizado: Excel y Copilot se actualizan constantemente.
 - Siguiente nivel: Power Query, Power BI, Power Automate, VBA.
 
-**Recuerda:** La tecnologia es la herramienta, pero el profesional eres tu. Tu criterio contable, tu experiencia y tu etica profesional son insustituibles. La IA te hace mas eficiente, pero no te reemplaza.
+**Recuerda:** La tecnología es la herramienta, pero el profesional eres tú. Tu criterio contable, tu experiencia y tu ética profesional son insustituibles. La IA te hace más eficiente, pero no te reemplaza.

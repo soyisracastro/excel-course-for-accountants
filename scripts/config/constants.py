@@ -66,19 +66,19 @@ SALARIO_MINIMO_MENSUAL = SALARIO_MINIMO_DIARIO * 30
 # ── Módulos del curso ─────────────────────────────────────────────
 MODULOS = {
     1: {
-        "nombre": "Logica Contable y Funciones de Control",
+        "nombre": "Lógica Contable y Funciones de Control",
         "carpeta": "Modulo_1_Funciones",
         "slide_nombre": "Modulo_1_Logica_Contable.md",
         "script_nombre": "Script_Modulo_1.md",
     },
     2: {
-        "nombre": "Procesamiento Masivo y Analisis con Tablas Dinamicas",
+        "nombre": "Procesamiento Masivo y Análisis con Tablas Dinámicas",
         "carpeta": "Modulo_2_Tablas_Dinamicas",
         "slide_nombre": "Modulo_2_Tablas_Dinamicas.md",
         "script_nombre": "Script_Modulo_2.md",
     },
     3: {
-        "nombre": "Visualizacion de Impacto y Reportes Ejecutivos",
+        "nombre": "Visualización de Impacto y Reportes Ejecutivos",
         "carpeta": "Modulo_3_Visualizacion",
         "slide_nombre": "Modulo_3_Visualizacion.md",
         "script_nombre": "Script_Modulo_3.md",
@@ -90,7 +90,7 @@ MODULOS = {
         "script_nombre": "Script_Modulo_4.md",
     },
     5: {
-        "nombre": "Automatizacion Nativa con Microsoft 365 Copilot",
+        "nombre": "Automatización Nativa con Microsoft 365 Copilot",
         "carpeta": "Modulo_5_Copilot_IA",
         "slide_nombre": "Modulo_5_Copilot_IA.md",
         "script_nombre": "Script_Modulo_5.md",
