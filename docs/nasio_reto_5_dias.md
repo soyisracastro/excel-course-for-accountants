@@ -6,6 +6,37 @@ Textos para cada checkpoint (copiar y pegar en el campo
 
 ---
 
+## Welcome (antes de iniciar el reto)
+
+Bienvenido al Reto 5 Dias: Excel para Contadores y Administrativos.
+
+Durante los proximos 5 dias vas a transformar tu forma de trabajar en Excel. No vamos a ver teoria ni tutoriales genericos — vamos a construir herramientas reales que puedes usar en tu trabajo desde el dia 1.
+
+**Que necesitas tener listo antes de empezar:**
+- Microsoft Excel instalado (2019, 2021, o Microsoft 365). Funciona en Windows o Mac.
+- Descarga el Pack de Archivos del curso (lo encuentras en los recursos de este reto). Son 12 archivos .xlsx + guias de referencia en .md que vamos a usar en cada sesion.
+- Guarda los archivos en una carpeta facil de encontrar, por ejemplo: Escritorio > Reto_Excel_Contadores.
+- Si tienes Microsoft 365 con Copilot, asegurate de tener los archivos en OneDrive para el Dia 5. Si no tienes Copilot, no te preocupes — el 90% del curso funciona con cualquier version de Excel.
+
+**Como funciona el reto:**
+- Cada dia tiene una clase en video donde construimos juntos paso a paso.
+- Cada dia incluye archivos de practica con datos reales (nomina, compras, ventas de combustible, declaraciones).
+- No necesitas experiencia previa en formulas avanzadas. Si sabes abrir Excel y escribir en una celda, estas listo.
+- Al final de los 5 dias vas a tener un dashboard profesional, interactivo y protegido, listo para presentar a un cliente o a tu jefe.
+
+**Estructura del reto:**
+- **Dia 1:** Funciones inteligentes (ISR, vencimientos, RFC)
+- **Dia 2:** Tablas dinamicas y procesamiento masivo de datos
+- **Dia 3:** Graficos profesionales y reportes ejecutivos
+- **Dia 4:** Dashboard integrado + proteccion y entrega profesional
+- **Dia 5:** Automatizacion con inteligencia artificial (Copilot y mas)
+
+**Tip:** Descarga los archivos y abrelos antes de la primera sesion para que estes listo desde el minuto uno.
+
+Nos vemos en el Dia 1.
+
+---
+
 ## Dia 1: Logica Contable y Funciones de Control
 
 Hoy Excel deja de ser una calculadora gigante y se convierte en tu asistente fiscal inteligente.
