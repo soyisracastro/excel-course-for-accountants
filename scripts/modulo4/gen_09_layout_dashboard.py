@@ -105,7 +105,7 @@ def build():
 
     # Title row
     ws.merge_cells("A1:Q1")
-    title_cell = ws.cell(row=1, column=1, value="Dashboard Contable Integrado")
+    title_cell = ws.cell(row=1, column=1, value="PLANTILLA: Construye Tu Dashboard Aqui")
     title_cell.font = Font(name="Calibri", bold=True, size=18, color=Color.AZUL)
     title_cell.alignment = ALIGN_CENTER
     title_cell.fill = PatternFill("solid", fgColor=Color.BLANCO)
@@ -172,16 +172,16 @@ def build():
 
     # ---- Hoja 2: Instrucciones ----
     gen.add_instructions_sheet([
-        "Este archivo es un TEMPLATE de layout para construir tu dashboard contable.",
-        "El area de KPIs (filas 2-5) contiene 4 cuadros: reemplaza '$0.00' con formulas SUM que apunten a tus datos.",
-        "El area de filtros (columnas A-B) es donde insertaras segmentadores de datos (Slicers).",
-        "Para insertar un segmentador: selecciona tu Tabla Dinamica > Insertar > Segmentacion de datos.",
-        "Las areas de graficos tienen placeholders. Para agregar un grafico: selecciona datos > Insertar > Grafico.",
-        "Recomendacion: usa graficos de barras para comparaciones y de linea para tendencias mensuales.",
-        "Los colores del dashboard siguen la paleta profesional del curso (azul #2563EB como color principal).",
-        "Para personalizar: cambia los colores de fondo en Formato de Celdas > Relleno.",
-        "Tip: Usa 'Vista > Inmovilizar paneles' para fijar las filas de KPIs al desplazarte.",
-        "Antes de compartir: oculta las lineas de cuadricula (Vista > desmarcar 'Lineas de cuadricula').",
+        "PLANTILLA DE TRABAJO -- Usa este archivo para construir tu dashboard durante la clase.",
+        "PASO 1: Abre los archivos de ejercicios anteriores (Modulos 1-3) donde tienes tus datos de nomina.",
+        "PASO 2: Crea una Tabla Dinamica desde tus datos (Insertar > Tabla Dinamica) y pegala en esta hoja.",
+        "PASO 3: Inserta Segmentadores vinculados a tu TD (clic en TD > Insertar > Segmentacion de datos).",
+        "PASO 4: Crea graficos desde tu TD y colocalos en las areas marcadas con bordes punteados.",
+        "PASO 5: Reemplaza '$0.00' en los KPIs con formulas =SUBTOTAL(109,...) que apunten a tu tabla.",
+        "PASO 6: Oculta las lineas de cuadricula (Vista > desmarcar 'Lineas de cuadricula').",
+        "Si quieres ver una solucion completa de referencia, abre el archivo: 10_Dashboard_Final_Integrado.xlsx",
+        "Tip: Inmoviliza paneles en fila 5 para que los KPIs queden fijos al desplazarte.",
+        "Este archivo es TU espacio de trabajo. El instructor trabaja en paralelo con el mismo template.",
     ])
 
     gen.save()

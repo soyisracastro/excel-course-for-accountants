@@ -17,18 +17,44 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from openpyxl.utils import get_column_letter
 from scripts.config.constants import PACK, Color, SALARIO_MINIMO_MENSUAL
-from scripts.config.isr_2026 import TARIFA_MENSUAL, calcular_isr_mensual
+from scripts.config.isr_2026 import calcular_isr_mensual
 from scripts.config.styles import (
-    FILL_HEADER, FILL_LIGHT, FILL_MEDIO, FILL_VERDE, FILL_AMARILLO, FILL_BLANCO,
-    FONT_HEADER, FONT_TITULO_XL, FONT_SUBTITULO, FONT_NORMAL, FONT_SMALL,
-    THIN_BORDER, ALIGN_CENTER, ALIGN_LEFT, ALIGN_RIGHT,
-    FMT_MONEY, FMT_PCT,
-    apply_header_style, apply_data_style, style_title_cell, auto_width,
+    FILL_VERDE, FILL_AMARILLO,
+    FONT_SUBTITULO, FONT_NORMAL, FONT_SMALL,
+    THIN_BORDER, ALIGN_CENTER, ALIGN_LEFT,
+    FMT_MONEY,
+    style_title_cell,
     PatternFill, Font, Alignment, Border, Side
 )
 from scripts.generators.xlsx_gen import ExcelGenerator
 
 OUTPUT_DIR = PACK / "Modulo_4_Dashboard"
+
+
+def _make_placeholder(ws, row_start, row_end, col_start, col_end, label):
+    """Create a placeholder area with a centered label and dashed border."""
+    mid_row = (row_start + row_end) // 2
+    ws.merge_cells(
+        start_row=mid_row, start_column=col_start,
+        end_row=mid_row, end_column=col_end
+    )
+    cell = ws.cell(row=mid_row, column=col_start, value=label)
+    cell.font = Font(name="Calibri", bold=False, size=14, color=Color.TEXTO_MEDIO)
+    cell.alignment = ALIGN_CENTER
+
+    light_fill = PatternFill("solid", fgColor=Color.FONDO_MEDIO)
+    border_dashed = Border(
+        left=Side(style="dashed", color=Color.GRIS_BORDE),
+        right=Side(style="dashed", color=Color.GRIS_BORDE),
+        top=Side(style="dashed", color=Color.GRIS_BORDE),
+        bottom=Side(style="dashed", color=Color.GRIS_BORDE),
+    )
+    for r in range(row_start, row_end + 1):
+        for c in range(col_start, col_end + 1):
+            c_cell = ws.cell(row=r, column=c)
+            c_cell.fill = light_fill
+            c_cell.border = border_dashed
+
 
 # ---- Datos de empleados ----
 EMPLEADOS = [
@@ -110,6 +136,8 @@ def build():
     style_title_cell(ws1, 1, 1, "Datos de Nomina 2026 -- 20 Empleados x 12 Meses", 8)
     ws1.cell(row=2, column=1,
              value="Base de datos para Tablas Dinamicas, Segmentadores y Dashboard.").font = FONT_SMALL
+    ws1.cell(row=3, column=1,
+             value="Datos de ejemplo ya incluidos. En tu version real, reemplaza con tu propia tabla de nomina.").font = FONT_SMALL
 
     headers = [
         "Empleado", "Puesto", "Periodo", "Sueldo",
@@ -147,105 +175,29 @@ def build():
     ws1.column_dimensions["B"].width = 26
     ws1.column_dimensions["C"].width = 14
 
-    # ==== Hoja 2: Tarifa_ISR ==============================================
-    ws2 = gen.add_sheet("Tarifa_ISR")
-    style_title_cell(ws2, 1, 1, "Tarifa ISR Mensual 2026 -- Art. 96 LISR (Anexo 8 RMF)", 6)
-    ws2.cell(row=2, column=1,
-             value="Tarifa oficial para retenciones de nomina. Usa BUSCARV para calcular el ISR.").font = FONT_SMALL
-
-    isr_headers = ["Limite Inferior", "Limite Superior", "Cuota Fija", "% Sobre Excedente"]
-    isr_data = []
-    for r in TARIFA_MENSUAL:
-        sup = "En adelante" if r["lim_sup"] > 999_999_999 else r["lim_sup"]
-        isr_data.append([r["lim_inf"], sup, r["cuota"], r["pct"] / 100])
-
-    gen.write_table(
-        ws2, isr_headers, isr_data, start_row=4,
-        table_name="Tarifa_ISR_Mensual",
-        money_cols=[1, 2, 3], pct_cols=[4]
-    )
-
-    # ==== Hoja 3: Calculadora =============================================
-    ws3 = gen.add_sheet("Calculadora")
-    style_title_cell(ws3, 1, 1, "Calculadora ISR Mensual con BUSCARV", 5)
-    ws3.cell(row=2, column=1,
-             value="Ingresa un sueldo mensual en B4 y las formulas calculan automaticamente el ISR.").font = FONT_SMALL
-
-    labels = [
-        (4, "Sueldo Mensual Bruto (base gravable)"),
-        (5, "Limite Inferior (BUSCARV)"),
-        (6, "Excedente sobre Limite Inferior"),
-        (7, "% Sobre Excedente (BUSCARV)"),
-        (8, "ISR Marginal"),
-        (9, "Cuota Fija (BUSCARV)"),
-        (10, "ISR Causado del Periodo"),
-        (11, ""),
-        (12, "IMSS Trabajador (estimado)"),
-        (13, "Subsidio al Empleo"),
-        (14, "Neto a Pagar"),
-    ]
-
-    for row, label in labels:
-        if label:
-            ws3.cell(row=row, column=1, value=label).font = FONT_NORMAL
-            ws3.cell(row=row, column=1).border = THIN_BORDER
-            ws3.cell(row=row, column=2).border = THIN_BORDER
-            ws3.cell(row=row, column=2).number_format = FMT_MONEY
-            ws3.cell(row=row, column=2).alignment = ALIGN_RIGHT
-
-    # Input cell
-    ws3.cell(row=4, column=2, value=25000).font = FONT_SUBTITULO
-    ws3.cell(row=4, column=2).fill = FILL_AMARILLO
-
-    # Formulas
-    ws3["B5"] = "=VLOOKUP(B4,Tarifa_ISR_Mensual,1,TRUE)"
-    ws3["B6"] = "=B4-B5"
-    ws3["B7"] = "=VLOOKUP(B4,Tarifa_ISR_Mensual,4,TRUE)"
-    ws3["B7"].number_format = FMT_PCT
-    ws3["B8"] = "=B6*B7"
-    ws3["B9"] = "=VLOOKUP(B4,Tarifa_ISR_Mensual,3,TRUE)"
-    ws3["B10"] = "=B8+B9"
-    ws3["B10"].fill = FILL_VERDE
-    ws3["B10"].font = FONT_SUBTITULO
-
-    # Deductions
-    ws3["B12"] = "=MIN(B4,113.14*25*30)*0.02775"  # IMSS estimate
-    ws3["B13"] = 0.00  # Subsidio - user fills or formula
-    ws3["B14"] = "=B4-B10-B12+B13"
-    ws3["B14"].fill = FILL_VERDE
-    ws3["B14"].font = FONT_SUBTITULO
-
-    # Explanations
-    explanations = {
-        5: "BUSCARV busca el limite inferior que corresponde a tu sueldo",
-        6: "Sueldo menos el limite inferior de tu rango",
-        7: "Porcentaje marginal de impuesto sobre el excedente",
-        8: "Excedente x Porcentaje = ISR marginal",
-        9: "Cantidad fija que se suma segun tu rango",
-        10: "ISR Marginal + Cuota Fija = ISR total del periodo",
-        12: "Estimacion: ~2.775% del SBC (tope 25 UMA)",
-        13: "Aplica solo a sueldos bajos (ver tabla de subsidio)",
-        14: "Sueldo - ISR - IMSS + Subsidio = Neto a pagar",
-    }
-    for row, text in explanations.items():
-        ws3.cell(row=row, column=3, value=text).font = FONT_SMALL
-
-    ws3.column_dimensions["A"].width = 48
-    ws3.column_dimensions["B"].width = 22
-    ws3.column_dimensions["C"].width = 55
-
-    # ==== Hoja 4: Dashboard ===============================================
-    ws4 = gen.add_sheet("Dashboard")
-    style_title_cell(ws4, 1, 1, "Dashboard de Nomina Integrado", 12)
+    # ==== Hoja 2: Dashboard ===============================================
+    ws2 = gen.add_sheet("Dashboard")
+    style_title_cell(ws2, 1, 1, "SOLUCION COMPLETA: Dashboard de Nomina Integrado", 12)
 
     # Background
     bg_fill = PatternFill("solid", fgColor=Color.FONDO_CLARO)
     for r in range(1, 30):
         for c in range(1, 14):
-            ws4.cell(row=r, column=c).fill = bg_fill
+            ws2.cell(row=r, column=c).fill = bg_fill
 
-    ws4.cell(row=1, column=1).fill = PatternFill("solid", fgColor=Color.BLANCO)
-    ws4.row_dimensions[1].height = 35
+    ws2.cell(row=1, column=1).fill = PatternFill("solid", fgColor=Color.BLANCO)
+    ws2.row_dimensions[1].height = 35
+
+    # Context banner (row 2)
+    ws2.merge_cells("A2:M2")
+    banner4 = ws2.cell(
+        row=2, column=1,
+        value="Ejemplo terminado con datos reales | Para construir el tuyo desde cero: 09_Layout_Dashboard_Contable.xlsx"
+    )
+    banner4.font = FONT_SMALL
+    banner4.fill = PatternFill("solid", fgColor=Color.BLANCO)
+    banner4.alignment = ALIGN_CENTER
+    ws2.row_dimensions[2].height = 16
 
     # ---- KPI Row (row 3-4) ----
     kpi_defs = [
@@ -261,7 +213,7 @@ def build():
 
     for title_cell_ref, title, color, val_cell_ref, formula in kpi_defs:
         # Title
-        cell_t = ws4[title_cell_ref]
+        cell_t = ws2[title_cell_ref]
         cell_t.value = title
         cell_t.font = Font(name="Calibri", bold=True, size=10, color="FFFFFF")
         cell_t.fill = PatternFill("solid", fgColor=color)
@@ -271,13 +223,13 @@ def build():
         # Merge title across 2 cols
         t_row = cell_t.row
         t_col = cell_t.column
-        ws4.merge_cells(start_row=t_row, start_column=t_col,
+        ws2.merge_cells(start_row=t_row, start_column=t_col,
                         end_row=t_row, end_column=t_col + 1)
-        ws4.cell(row=t_row, column=t_col + 1).fill = PatternFill("solid", fgColor=color)
-        ws4.cell(row=t_row, column=t_col + 1).border = THIN_BORDER
+        ws2.cell(row=t_row, column=t_col + 1).fill = PatternFill("solid", fgColor=color)
+        ws2.cell(row=t_row, column=t_col + 1).border = THIN_BORDER
 
         # Value
-        cell_v = ws4[val_cell_ref]
+        cell_v = ws2[val_cell_ref]
         cell_v.value = formula
         cell_v.font = Font(name="Calibri", bold=True, size=14, color=color)
         cell_v.alignment = ALIGN_CENTER
@@ -288,71 +240,62 @@ def build():
         # Merge value across 2 cols
         v_row = cell_v.row
         v_col = cell_v.column
-        ws4.merge_cells(start_row=v_row, start_column=v_col,
+        ws2.merge_cells(start_row=v_row, start_column=v_col,
                         end_row=v_row, end_column=v_col + 1)
-        ws4.cell(row=v_row, column=v_col + 1).border = THIN_BORDER
+        ws2.cell(row=v_row, column=v_col + 1).border = THIN_BORDER
 
-    ws4.row_dimensions[3].height = 25
-    ws4.row_dimensions[4].height = 35
+    ws2.row_dimensions[3].height = 25
+    ws2.row_dimensions[4].height = 35
 
-    # ---- Instructions in Dashboard ----
-    instructions_start = 7
-    dash_instructions = [
-        "INSTRUCCIONES PARA COMPLETAR EL DASHBOARD:",
-        "",
-        "1. TABLAS DINAMICAS:",
-        "   a) Selecciona cualquier celda en Datos_Nomina > Insertar > Tabla Dinamica",
-        "   b) Crea una TD con Periodo en filas, Sueldo/ISR/NetoPagar en valores (Suma)",
-        "   c) Crea otra TD con Puesto en filas, Empleado en valores (Cuenta)",
-        "",
-        "2. SEGMENTADORES (SLICERS):",
-        "   a) Clic en tu Tabla Dinamica > Insertar > Segmentacion de datos",
-        "   b) Selecciona: Periodo, Puesto, Empleado",
-        "   c) Conecta los slicers a TODAS las TDs: clic derecho > Conexiones de informe",
-        "",
-        "3. GRAFICOS:",
-        "   a) Selecciona la TD > Insertar > Grafico > Barras agrupadas (para comparar puestos)",
-        "   b) Inserta un grafico de lineas basado en la TD mensual (tendencia de nomina)",
-        "   c) Mueve los graficos a esta hoja de Dashboard",
-        "",
-        "4. KPIs:",
-        "   Los KPIs de arriba ya tienen formulas SUBTOTAL que respetan filtros de slicers.",
-        "   Si usas Tablas Dinamicas, reemplaza con =GETPIVOTDATA() para mayor precision.",
-        "",
-        "5. FORMATO FINAL:",
-        "   a) Oculta lineas de cuadricula: Vista > desmarcar Lineas de cuadricula",
-        "   b) Ajusta el zoom a 85-90% para ver todo el dashboard",
-        "   c) Usa Vista > Inmovilizar paneles en fila 5 para fijar los KPIs",
-    ]
+    # ---- Filters area (col A-B, rows 6-25) ----
+    ws2.merge_cells("A6:B6")
+    filt_title = ws2.cell(row=6, column=1, value="FILTROS / SEGMENTADORES")
+    filt_title.font = Font(name="Calibri", bold=True, size=10, color="FFFFFF")
+    filt_title.fill = PatternFill("solid", fgColor=Color.AZUL)
+    filt_title.alignment = ALIGN_CENTER
+    ws2.cell(row=6, column=2).fill = PatternFill("solid", fgColor=Color.AZUL)
 
-    for i, line in enumerate(dash_instructions):
-        row = instructions_start + i
-        ws4.merge_cells(start_row=row, start_column=1, end_row=row, end_column=12)
-        cell = ws4.cell(row=row, column=1, value=line)
-        if i == 0:
-            cell.font = FONT_SUBTITULO
-        else:
-            cell.font = FONT_NORMAL
-        cell.alignment = ALIGN_LEFT
+    filter_labels = ["Periodo:", "Puesto:", "Empleado:"]
+    for i, label in enumerate(filter_labels):
+        r = 8 + i * 4
+        ws2.cell(row=r, column=1, value=label).font = FONT_NORMAL
+        ws2.cell(row=r, column=1).alignment = ALIGN_LEFT
+        ws2.merge_cells(start_row=r + 1, start_column=1, end_row=r + 1, end_column=2)
+        ws2.cell(row=r + 1, column=1,
+                 value="[Insertar segmentador]").font = FONT_SMALL
 
-    # Column widths
-    for c in range(1, 14):
-        ws4.column_dimensions[get_column_letter(c)].width = 14
+    ws2.column_dimensions["A"].width = 16
+    ws2.column_dimensions["B"].width = 12
 
-    ws4.sheet_properties.tabColor = Color.AZUL
+    # ---- Chart placeholders (rows 6-25, cols C-M) ----
+    _make_placeholder(ws2, 6, 15, 3, 8, "Grafico 1: Sueldo por Periodo (linea)")
+    _make_placeholder(ws2, 6, 15, 9, 13, "Grafico 2: ISR por Puesto (barras)")
+    _make_placeholder(ws2, 17, 25, 3, 13, "Grafico 3: Detalle neto por empleado (tabla o barras)")
 
-    # ==== Hoja 5: Instrucciones ===========================================
+    # Remaining column widths
+    for c in range(3, 14):
+        ws2.column_dimensions[get_column_letter(c)].width = 12
+
+    # Footer
+    ws2.merge_cells("A27:M27")
+    footer = ws2.cell(row=27, column=1,
+                      value="Curso: Excel para Contadores y Administrativos | Israel Castro | 2026")
+    footer.font = FONT_SMALL
+    footer.alignment = ALIGN_CENTER
+
+    ws2.sheet_properties.tabColor = Color.AZUL
+
+    # ==== Hoja 3: Instrucciones ===========================================
     gen.add_instructions_sheet([
-        "Este archivo integra todo el Modulo 4: Nomina + ISR + Dashboard.",
+        "SOLUCION DE REFERENCIA -- Este archivo muestra el resultado final del dashboard del Modulo 4.",
+        "Abre primero el 09_Layout_Dashboard_Contable.xlsx para construir tu propio dashboard en clase.",
         "La hoja 'Datos_Nomina' tiene 240 registros (20 empleados x 12 meses) como tabla nombrada 'Nomina_Empleados'.",
-        "La hoja 'Tarifa_ISR' contiene la tarifa mensual Art. 96 como tabla nombrada 'Tarifa_ISR_Mensual'.",
-        "En 'Calculadora', cambia el sueldo amarillo (B4) para ver el calculo ISR paso a paso con BUSCARV.",
+        "Los datos simulan sueldos mexicanos reales desde salario minimo hasta $55,000/mes.",
         "La hoja 'Dashboard' tiene KPIs con formulas SUBTOTAL que se actualizan con los segmentadores.",
         "PASO 1: Crea Tablas Dinamicas desde Datos_Nomina (una por meses, otra por puestos).",
-        "PASO 2: Inserta Segmentadores vinculados a ambas Tablas Dinamicas.",
+        "PASO 2: Inserta Segmentadores (Periodo, Puesto, Empleado) vinculados a ambas TDs.",
         "PASO 3: Crea graficos (barras y lineas) y muevalos a la hoja Dashboard.",
-        "PASO 4: Protege las hojas de formulas y comparte como PDF o Excel protegido.",
-        "Los datos simulan sueldos mexicanos reales desde salario minimo hasta $55,000/mes.",
+        "PASO 4: Protege las hojas y comparte como PDF o Excel protegido.",
     ])
 
     gen.save()
